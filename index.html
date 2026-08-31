@@ -11,26 +11,29 @@
                 padding: 0;
                 box-sizing: border-box;
             }
+            :root {
+                --ink: #0A1F26;
+                --ink-2: #0F2A32;
+                --clear: #3FA9B5;
+            }
             html { scroll-behavior: smooth; }
             body {
                 text-align: center;
+                background:
+                radial-gradient(ellipse at 20% -10%, rgba(63,169,181,0.25), transparent 55%),
+                linear-gradient(180deg, var(--ink) 0%, var(--ink) 85%, var(--ink-2) 100%);
             }
             /*Hero css*/
-            .hero-title {
-                padding: 25px 15px;
-                background-color: #304C64;
-                margin: 0 auto;
-                width: max-content;
-            }
-            .hero-header, span{      
+             .hero-header{      
                 padding: 0px 0px;
-                background-color: #A4CCD4;
                 text-align: left;
                 font-family: 'Fraunces', serif;
                 font-weight: 600;
                 font-size: 25px;
                 height:fit-content;
                 width:fit-content;
+                align-items: center;
+                margin: auto;
             }
             .header-p{
                 font-size: 20px;
@@ -59,24 +62,34 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr; /*equal columns*/
                 gap: 24px; /*space inbetween*/
-                background-color: #A4CCD4;
                 height: fit-content;
                 width: fit-content;
                 margin-top: 30px;
+                color: #F0EDE3;
+
             }
             .headline-stat .number{
                 font-size: 30px;
-                padding: 35px;
+                padding-top: 35px;
+                padding-bottom: 5px;
+                padding-right: 0;
+                padding-left: 0;
+                text-align: left;
+                color: #E2A33D;
             }
             .headline-stat .label{
                 font-size: 17px;
+                text-align: left;
+                padding-bottom: 35px;
+            }
+            .header-p{
+                color: #F0EDE3;
             }
             h1, h3{
                 text-align: left;
                 font-family: 'Fraunces', serif;
             }
             .parent-1{ /*parent 1 starts here*/
-                background-color: #304C64;
                 padding: 0%;
                 margin: 0%;
                 color: white;
@@ -91,30 +104,33 @@
                 text-align: left;
             }
             .parent-2{ /*The Problem*/
-                background-color: #A4CCD4;
                 padding: 10px;
                 margin: 50px;
+                color:#F0EDE3;
             }
             .parent-2 .part1{
-                background-color: #304C64;
+
                 height: fit-content;
                 width: fit-content;
                 margin-left: 30px;
             }
-            .card-stat{ /*part 1, tons of stats*/
-                background-color: #304C64;
-                align-content: flex-start;
+            .card-stat{ /*part 1, tons of stats*/                align-content: flex-start;
                 height: fit-content;
                 width: auto;
                 margin-left: 30px;
                 margin-right: 30px;
                 margin-top: 25px;
+                color:#F0EDE3;
             }
             .card-stat .number{
                 font-size: 25px;
+                color: #E2A33D;
+            }
+            .card-stat .source{
+                color:rgba(175,192,190,0.55);
             }
             .progress{/*start of progress*/
-                background-color: white;
+        
                 margin-top: 60px;
                 margin-left: 30px;
                 margin-right: 30px;
@@ -124,29 +140,29 @@
                 text-align: left;
                 font-size: 25px;
                 margin-top: 25px;
-                background-color: red;
 
             }   
             .progress-percent{
                 text-align: right;
                 font-size: 25px; 
-                background-color: blue;
+                color: #E2A33D;
+                
             } 
             .progress-source{
                 text-align: left;
-                background-color: yellow;
                 margin-top: 25px;
+                color:rgba(175,192,190,0.55);
             }
-            .a-ref{
+            .progress-source .a-ref{
                 text-align: left;
                 padding-left: 215px;
+                color:rgba(175,192,190,0.55);
             }
             
             .social-proof{/*start of social proof*/
                 margin-top: 120px;
                 margin-left: 30px;
                 margin-right: 30px;
-                background-color: red;
                 font-size: 25px;
                 font-family: 'IBM Plex Sans', sans-serif;
                 text-align: left;
@@ -154,6 +170,7 @@
             .social-proof-2{
                 margin-top: 15px;
                 margin-bottom: 120px;
+                color:rgba(175,192,190,0.55);
             }
             .card-stat .number{/*start of card stat 55*/
                 font-size: 30px;
@@ -169,39 +186,37 @@
                 margin-top: 15px;
             }
             .parent-3{ /*part 2 solution*/
-                background-color: #304C64;
                 padding: 10px;
                 margin: 50px;
-                color: white;
+                color:#F0EDE3;
             }
             .parent-4{
-                background-color: #A4CCD4;
                 padding: 10px;
                 margin: 50px;
+                color:#F0EDE3;
             }
             footer{
                 padding: 0;
                 margin-left: 50px;
                 margin-right: 50px;
+                color:#F0EDE3;
             }
         </style>
     </head>
     <body>
         <!--Hero-->
     <div class="parent-1">
-        <div class="hero-title">
             <div class="hero-header">
-                <span class="sdg6">SDG 6 — CLEAN WATER AND SANITATION</span>
+                <span class="sdg6" style="color:#7FD8CE;">SDG 6 — CLEAN WATER AND SANITATION</span>
             
-                <h1>Water, a basic need: <br><em>Dive in.</em></h1>
+                <h1 style="color: #F0EDE3;">Water, a basic need: <br><em style="color:#7FD8CE">Dive in.</em></h1>
                 <p class="header-p">
                     Safe water isn't a convenience — the UN calls it a human right.<br> Yet from global
                     statistics down to a single street in Manila, <br>access to clean water and working
                     sanitation remains <br>out of reach for millions.
                 </p>
             </div>
-        </div>
-<hr>
+
         <section>
             <div class="headline-stat">
                 <div>
@@ -226,7 +241,7 @@
     <div class="parent-2">
         <section>
             <div class="part1">
-            <h1 class="part1-part">Part 01 — The problem</h1>
+            <h1 class="part1-part" style="color:#7FD8CE;">Part 01 — The problem</h1>
             <h3 class="part1-title">A basic need, still out of reach</h3>
             <p class="part1-desc"">
                 Water sustains every ecosystem and every person in it. But unsafe water <br>and absent
@@ -290,7 +305,7 @@
                     <div class="progress-source">
                         <p>Source: The SDG Report 2025, UN Dept. of Economic and Social Affairs</p>    
                         <div class="a-ref">
-                        <a href="https://www.sdgs.un.org/goals/goal6">sdgs.un.org/goals/goal6</a>
+                            <a href="https://www.sdgs.un.org/goals/goal6">sdgs.un.org/goals/goal6</a>
                         </div>
                     </div>
                 </div>    
@@ -308,7 +323,7 @@
         
         <section>
             <div class="card-stat">
-                    <div class="number">55 deaths/day</div>
+                    <div class="number" style="color: #E2A33D;">55 deaths/day</div>
                     <div class="label">
                         linked to open defecation in sewer canals, a result of limited sanitation access
                         across the Philippines. Sewer canals nationwide remain open, clogged with debris, 
@@ -321,7 +336,7 @@
 <hr>
         <!--Part 02: The Solution-->
     <div class="parent-3">
-        <h1 class="part2-part">Part 02 — Toward a solution</h1>
+        <h1 class="part2-part" style="color:#7FD8CE;">Part 02 — Toward a solution</h1>
         <h3>What clearing the water actually takes</h3>
         <p>
             Fixing this doesn't require reinventing anything — it requires finishing what's already
@@ -399,6 +414,6 @@
         <p style="margin-bottom: 15px";> Based on the research of Alexter Cueno into SDG 6 — Clean Water and Sanitation, with data from WHO, UNDP, the United Nations, Rappler, and Wateroam.</p>
         <a href="">Click here for the original paper</a>
         <a href="">Click here for the references</a>
-        <p style="text-align: center; margin-top: 15px;">&copy; 2026 Alexter Cueno. CS30-8P Coursework. Mapua University</p>
+        <p style="text-align: center; margin-top: 15px; color: #E2A33D">&copy; 2026 Alexter Cueno. CS30-8P Coursework. Mapua University</p>
     </footer>
 </html>
