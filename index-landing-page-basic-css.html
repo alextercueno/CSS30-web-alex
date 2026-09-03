@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
         <style>
             /*set the browser margin, padding*/
+            /*FIX: header stat, problem1 stat, socialproof, 55deaths/day, fix the links*/
             *{
                 margin: 0;
                 padding: 0;
@@ -35,6 +36,11 @@
                 align-items: center;
                 margin: auto;
             }
+            /*
+            font-family: 'Fraunces', serif; NUMBER
+            font-family: 'IBM Plex Sans', sans-serif; LABEL
+            font-family: 'IBM Plex Mono', monospace; PARAGRAPH
+            */
             .header-p{
                 font-size: 20px;
             }
@@ -136,7 +142,7 @@
             }
             .card-stat-container{
                 display: grid;
-                grid-template-columns: repeat(3, 1fr); /* explicitly 3 columns */
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));; /* explicitly 3 columns */
                 gap: 24px;
                 padding: 15px;
                 border: 1px solid rgba(175,192,190,0.55);
@@ -167,6 +173,7 @@
                 margin-top: 35px;
                 margin-bottom: 0;
                 padding-bottom: 0;
+                color: #AFC0BE;
             }   
             .progress-percent{
                 text-align: right;
@@ -179,11 +186,17 @@
                 margin-top: 25px;
                 color:rgba(175,192,190,0.55);
             }
-            .progress-source .a-ref{
+            /*.progress-source .a-ref{
                 text-align: left;
-                padding-left: 215px;
+                padding: 12px 24px;
                 color:rgba(175,192,190,0.55);
-            }
+                text-decoration: none;
+                display: inline-block;
+                background-color: #0F2A32;
+                border-radius: 4px;
+                border: 1px solid rgba(175,192,190,0.55);
+                cursor: pointer;
+            }*/
             .prog-fill{
                 height:100%;
                 width: var(--target);
@@ -240,14 +253,20 @@
                 color: #7FD8CE;
                 font-family: 'Fraunces', serif;
                 margin-bottom: 10px;
+                font-size: 25px;
+                font-family: 'Fraunces', serif;
             }
             .step-desc{
                 color: #F0EDE3;
                 margin-bottom: 10px;
+                font-size: 20px;
+                font-family: 'IBM Plex Sans', sans-serif;
             }
             .step-container p{
                 color: #AFC0BE;
                 margin-bottom: 25px;
+                font-size: 18px;
+                font-family: 'IBM Plex Mono', monospace;
             }
             .parent-4{
                 padding: 10px;
@@ -265,28 +284,47 @@
             }
             .parent-4 p{
                 color: #AFC0BE;
+                font-size: 18px;
+            }
+            .parent-4 a{
+                margin-top: 15px;
+                margin-bottom: 7px;
+                margin-left: 10px;
+                margin-right: 10px;
+                padding: 12px 24px;
+                color: #E2A33D;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 4px;
+                border: 1px solid rgba(175,192,190,0.55);
+                cursor: pointer;
+                background-color: #0F2A32;
             }
             .since-container{
                 margin: 25px;
                 padding: 15px;
                 border: 1px solid rgba(175,192,190,0.55);
                 text-align: left;
+                background-color: #0F2A32;
             }
             .since{
                 color: #7FD8CE;
-                font-size: 15px;
+                font-size: 17px;
                 font-family: 'Fraunces', serif;
                 margin-bottom: 7px;
+                
             }
             .since-ssp{
                 color: #F0EDE3;
                 font-size: 20px;
                 margin-bottom: 7px;
+                font-family: 'IBM Plex Sans', sans-serif;
             }
             .since-container p{
                 color: #AFC0BE;
                 font-size: 17px;
                 margin-bottom: 7px;
+                font-family: 'IBM Plex Mono', monospace;
             }
             .parent-4 .cta{
                 text-align: left;
@@ -297,12 +335,27 @@
                 margin-right: 50px;
                 color: #AFC0BE;
             }
+            .footer-a{
+                margin-top: 15px;
+                margin-bottom: 7px;
+                margin-left: 10px;
+                margin-right: 10px;
+                padding: 12px 24px;
+                color: #E2A33D;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 4px;
+                border: 1px solid rgba(175,192,190,0.55);
+                cursor: pointer;
+                background-color: #0F2A32;
+            }
+            
         </style>
     </head>
     <body>
         <!--Hero-->
     <div class="parent-1">
-            <div class="hero-header">
+            <div class="hero-header" id="Dive">
                 <span class="sdg6" style="color:#7FD8CE;">SDG 6 — CLEAN WATER AND SANITATION</span>
             
                 <h1 style="color: #F0EDE3;">Water, a basic need: <br><em style="color:#7FD8CE">Dive in.</em></h1>
@@ -336,7 +389,7 @@
         <!--Part 1: The Problem-->
     <div class="parent-2">
         <section>
-            <div class="part1">
+            <div class="part1" id="Problem">
             <h1 class="part1-part" style="color:#7FD8CE;">Part 01 — The problem</h1>
             <h3 class="part1-title">A basic need, still out of reach</h3>
             <p class="part1-desc"">
@@ -385,7 +438,7 @@
         </section>
 <hr>       
         <section>
-            <div class="progress">
+            <div class="progress" id="GProgress">
                 <div>
                     <div class="progress-header">
                     <h1>Global Wash progress, 2015 → 2024</h1>
@@ -411,16 +464,16 @@
 
                     <div class="progress-source">
                         <p>Source: The SDG Report 2025, UN Dept. of Economic and Social Affairs</p>    
-                        <div class="a-ref">
-                            <a href="https://www.sdgs.un.org/goals/goal6">sdgs.un.org/goals/goal6</a>
-                        </div>
+                        <!--<div>
+                            <a href="https://www.sdgs.un.org/goals/goal6" class="a-ref">sdgs.un.org/goals/goal6</a>
+                        </div>-->
                     </div>
                 </div>    
             </div>
         </section>
 <hr>        
         <section>
-            <div class="social-proof">
+            <div class="social-proof" id="SProof">
                     <em>A family lives beside a pedicab on a Manila pavement, sheets of old tarpaulin their
                     only wall against the rain. They wash their clothes with a single gallong of water
                      — no way to know if it's even clean, no way to make it last.</em>
@@ -445,9 +498,9 @@
 <hr>
         <!--Part 02: The Solution-->
     <div class="parent-3">
-        <h1 class="part2-part" style="color:#7FD8CE;">Part 02 — Toward a solution</h1>
+        <h1 class="part2-part" id="Solution" style="color:#7FD8CE;">Part 02 — Toward a solution</h1>
         <h3 class="part2-title">What clearing the water actually takes</h3>
-        <p class="part2-desc">
+        <p class="part2-desc" style="margin: 5px;">
             Fixing this doesn't require reinventing anything — it requires finishing what's already
             been started. Three conrete, sequential fixes at the sewage level, backed by frameworks
             already in motion since 2014.
@@ -479,7 +532,7 @@
         </section>
 <hr>
         <section>
-            <div class="since-container">
+            <div class="since-container" id="SinceLast">
                 <div class="since">Since 2014</div>
                 <div class="since-ssp">Sanitation Safety Planning (SSP)</div>
                 <p>
@@ -520,17 +573,17 @@
                     support — and funding — has the clearest path to impact.
                 </p>
                 
-                <a href="">See the data</a>
-                <a href="">See the plan</a>
+                <a href="#" class="btn">Donate</a>
+                <a href="#" class="btn">How to Help?</a>
             </div>
         </section>
     </div>
     </body>
         <hr>
     <footer>
-        <p style="margin-bottom: 15px";> Based on the research of Alexter Cueno into SDG 6 — Clean Water and Sanitation, with data from WHO, UNDP, the United Nations, Rappler, and Wateroam.</p>
-        <a href="">Click here for the original paper</a>
-        <a href="">Click here for the references</a>
-        <p style="text-align: center; margin-top: 15px; color: #E2A33D">&copy; 2026 Alexter Cueno. CS30-8P Coursework. Mapua University</p>
+        <p style="margin-bottom: 15px; margin-top: 15px;"> Based on the research of Alexter Cueno into SDG 6 — Clean Water and Sanitation, with data from WHO, UNDP, the United Nations, Rappler, and Wateroam.</p>
+        <a href="https://drive.google.com/file/d/1cvdZk40E4NBnfuGv4cICx8ayMm2ANluo/view?usp=sharing" class="footer-a">Original Paper</a>
+        <a href="https://drive.google.com/file/d/1ZYIkLlkaho-TZyoGvZ-wn1pb7YCrGZXi/view?usp=sharing" class="footer-a">References</a>
+        <p style="text-align: center; margin-top: 15px; color: white;">&copy; 2026 Alexter Cueno. CS30-8P Coursework. Mapua University</p>
     </footer>
 </html>
