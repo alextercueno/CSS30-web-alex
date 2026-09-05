@@ -5,8 +5,8 @@
         <title>Water, A Basic Need: Dive In.</title>
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
         <style>
-            /*set the browser margin, padding*/
-            /*FIX: header stat, problem1 stat, socialproof, 55deaths/day, fix the links*/
+
+            /*sets the browser to default, some colors, and @media*/
             *{
                 margin: 0;
                 padding: 0;
@@ -17,13 +17,20 @@
                 --ink-2: #0F2A32;
                 --clear: #3FA9B5;
             }
-            html { scroll-behavior: smooth; }
+            @media (max-width: 768px){
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /*Body background color CSS*/
             body {
                 text-align: center;
                 background:
                 radial-gradient(ellipse at 20% -10%, rgba(63,169,181,0.25), transparent 55%),
                 linear-gradient(180deg, var(--ink) 0%, var(--ink) 85%, var(--ink-2) 100%);
             }
+
             /*Hero css*/
              .hero-header{      
                 padding: 0px 0px;
@@ -36,11 +43,13 @@
                 align-items: center;
                 margin: auto;
             }
-            /*
+            /*Fonts to be used
             font-family: 'Fraunces', serif; NUMBER
             font-family: 'IBM Plex Sans', sans-serif; LABEL
             font-family: 'IBM Plex Mono', monospace; PARAGRAPH
             */
+
+            /*Css*/
             .header-p{
                 font-size: 20px;
             }
@@ -65,9 +74,9 @@
             p {
                 font-family: 'IBM Plex Sans', sans-serif;
             }
-            /*parent-3 css*/
 
-            .headline-stat{ /*First three stats*/
+            /*First three stats of header*/
+            .headline-stat{
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr; /*equal columns*/
                 gap: 35px; /*space inbetween*/
@@ -75,7 +84,6 @@
                 width: fit-content;
                 margin: 50px;
                 color: #F0EDE3;
-
             }
             .headline-stat .number{
                 font-size: 30px;
@@ -94,11 +102,15 @@
             .header-p{
                 color: #AFC0BE;
             }
+
+            /*h1, h3 additional css*/
             h1, h3{
                 text-align: left;
                 font-family: 'Fraunces', serif;
             }
-            .parent-1{ /*parent 1 starts here*/
+
+            /*parent 1 starts here*/
+            .parent-1{ 
                 padding: 0%;
                 margin: 0%;
                 color: white;
@@ -121,7 +133,9 @@
                 text-align: left;
                 color: #AFC0BE;
             }
-            .parent-2{ /*The Problem*/
+
+            /*Parent 2 starts here, The Problem*/
+            .parent-2{ 
                 padding: 10px;
                 margin: 50px;
                 color:#F0EDE3;
@@ -132,7 +146,10 @@
                 width: fit-content;
                 margin-left: 30px;
             }
-            .card-stat{ /*part 1, tons of stats*/                align-content: flex-start;
+
+            /*part 1, tons of stats*/
+            .card-stat{
+                align-content: flex-start;
                 height: fit-content;
                 width: auto;
                 margin-left: 30px;
@@ -160,8 +177,9 @@
                 border: 1px solid rgba(175,192,190,0.55);
                 padding-bottom: 15px;
             }
-            .progress{/*start of progress*/
-        
+
+            /*start of progress*/
+            .progress{
                 margin-top: 60px;
                 margin-left: 30px;
                 margin-right: 30px;
@@ -186,33 +204,23 @@
                 margin-top: 25px;
                 color:rgba(175,192,190,0.55);
             }
-            /*.progress-source .a-ref{
-                text-align: left;
-                padding: 12px 24px;
-                color:rgba(175,192,190,0.55);
-                text-decoration: none;
-                display: inline-block;
-                background-color: #0F2A32;
-                border-radius: 4px;
-                border: 1px solid rgba(175,192,190,0.55);
-                cursor: pointer;
-            }*/
             .prog-fill{
                 height:100%;
                 width: var(--target);
                 background:var(--clear);
             }
             .prog-track{
-            height:8px;
-            background:rgba(240,237,227,0.1); /* empty/base track */
+                height:8px;
+                background:rgba(240,237,227,0.1); /* empty/base track */
             }
 
             .prog-fill{
-            height:100%;
-            background:var(--clear); /* #3FA9B5 */
+                height:100%;
+                background:var(--clear); /* #3FA9B5 */
             }
             
-            .social-proof{/*start of social proof*/
+            /*start of social proof*/
+            .social-proof{
                 margin-top: 120px;
                 margin-left: 120px;
                 margin-right: 120px;
@@ -227,7 +235,9 @@
                 margin-bottom: 120px;
                 color:rgba(175,192,190,0.55);
             }
-            .card-stat .number{/*start of card stat 55*/
+
+            /*start of card stat 55*/
+            .card-stat .number{
                 font-size: 30px;
                 text-align: left;
             }
@@ -240,11 +250,15 @@
                 text-align: left;
                 margin-top: 15px;
             }
-            .parent-3{ /*part 2 solution*/
+
+            /*parent 3 stars here, solution*/
+            .parent-3{
                 padding: 10px;
                 margin: 50px;
                 color:#F0EDE3;
             }
+
+            /*Steps of Solutions*/
             .step-container{
                 text-align: left;
                 margin: 50px;
@@ -268,6 +282,8 @@
                 font-size: 18px;
                 font-family: 'IBM Plex Mono', monospace;
             }
+
+            /*Parent 4 starts here*/
             .parent-4{
                 padding: 10px;
                 margin: 50px;
@@ -300,6 +316,11 @@
                 cursor: pointer;
                 background-color: #0F2A32;
             }
+            .parent-4 .cta{
+                text-align: left;
+            }
+
+            /*css of since, target, ongoing*/
             .since-container{
                 margin: 25px;
                 padding: 15px;
@@ -326,9 +347,8 @@
                 margin-bottom: 7px;
                 font-family: 'IBM Plex Mono', monospace;
             }
-            .parent-4 .cta{
-                text-align: left;
-            }
+
+            /*Start of footer css*/
             footer{
                 padding: 0;
                 margin-left: 50px;
@@ -354,230 +374,230 @@
     </head>
     <body>
         <!--Hero-->
-    <div class="parent-1">
-            <div class="hero-header" id="Dive">
-                <span class="sdg6" style="color:#7FD8CE;">SDG 6 — CLEAN WATER AND SANITATION</span>
-            
-                <h1 style="color: #F0EDE3;">Water, a basic need: <br><em style="color:#7FD8CE">Dive in.</em></h1>
-                <p class="header-p">
-                    Safe water isn't a convenience — the UN calls it a human right.<br> Yet from global
-                    statistics down to a single street in Manila, <br>access to clean water and working
-                    sanitation remains <br>out of reach for millions.
-                </p>
-            </div>
-
-        <section>
-            <div class="headline-stat">
-                <div>
-                    <div class="number">2.5B</div>
-                    <div class="label">People without access to safe water &amp; basic sanitation</div>
-                </div>
-
-                <div>
-                    <div class="number">1 in 10</div>
-                    <div class="label">Filipinos still can't access clean water resources</div>
-                </div>
-
-                <div>
-                    <div class="number">55/day</div>
-                    <div class="label">Filipino deaths linked to poor sanitationa access</div>
-                </div>
-            </div>
-        </section>
-    </div>
-        <hr>
-        <!--Part 1: The Problem-->
-    <div class="parent-2">
-        <section>
-            <div class="part1" id="Problem">
-            <h1 class="part1-part" style="color:#7FD8CE;">Part 01 — The problem</h1>
-            <h3 class="part1-title">A basic need, still out of reach</h3>
-            <p class="part1-desc"">
-                Water sustains every ecosystem and every person in it. But unsafe water <br>and absent
-                sanitation still drive disease, death, and daily indignity —<br> worldwide, and block
-                in the Philippines.
-            </p>
-            </div>
-        <div class="card-stat-container">    
-            <div class="card-stat">
-                    <div class="number">73%</div>
-                    <div class="label">of the global population had access to water free from contamination in 2002 — meaning over a quarter did not.</div>
-                    <div class="source">WHO, 2023.</div>
-            </div>
-                </tr>
-            <div class="card-stat">
-                    <div class="number">2B+</div>
-                    <div class="label">people live in water-scarce countries, a figure worsened by climate change and population growth.</div>
-                    <div class="source">WHO, 2023.</div>
-            </div>
-
-            <div class="card-stat">
-                    <div class="number">1 in 4</div>
-                    <div class="label">worldwide are projected to face water shortages by 2050 if current trends continue.</div>
-                    <div class="source">UNDP, n.d.</div>
-            </div>
-
-            <div class="card-stat">
-                    <div class="number">20M</div>
-                    <div class="label">Filipinos have no access to sanitation or proper sewage facilities.</div>
-                    <div class="source">Rappler, 2013.</div>
-            </div>
-
-            <div class="card-stat">
-                    <div class="number">40.3%</div>
-                    <div class="label">of Filipino families rely on water refilling stations for drinking water</div>
-                    <div class="source">Wateroam, 2020.</div>
-            </div>
-            
-            <div class="card-stat">
-                    <div class="number">39%</div>
-                    <div class="label">had access to safe sanitation as of 2015 — the starting point of the SDGs are still working to lift.</div>
-                    <div class="source">UNDP, n.d.</div>
-            </div>
-        </div>    
-        </section>
-<hr>       
-        <section>
-            <div class="progress" id="GProgress">
-                <div>
-                    <div class="progress-header">
-                    <h1>Global Wash progress, 2015 → 2024</h1>
-                    </div>
-            
-                    <div class="progress-caption">Safely managed drinking water</div>
-                    <div class="progress-percent"><strong>68% → 74%</strong></div>
-                    <div class="prog-track" style="--target: 74%">
-                        <div class="prog-fill"></div>
-                    </div>
-            
-                    <div class="progress-caption">Safely managed sanitation</div>
-                    <div class="progress-percent"><strong>48% → 58%</strong></div>
-                    <div class="prog-track" style="--target: 58%">
-                        <div class="prog-fill"></div>
-                    </div>
-
-                    <div class="progress-caption">Basic hygiene services</div>
-                    <div class="progress-percent"><strong>66% → 80%</strong></div>
-                    <div class="prog-track" style="--target: 80%">
-                        <div class="prog-fill"></div>
-                    </div>
-
-                    <div class="progress-source">
-                        <p>Source: The SDG Report 2025, UN Dept. of Economic and Social Affairs</p>    
-                        <!--<div>
-                            <a href="https://www.sdgs.un.org/goals/goal6" class="a-ref">sdgs.un.org/goals/goal6</a>
-                        </div>-->
-                    </div>
-                </div>    
-            </div>
-        </section>
-<hr>        
-        <section>
-            <div class="social-proof" id="SProof">
-                    <em>A family lives beside a pedicab on a Manila pavement, sheets of old tarpaulin their
-                    only wall against the rain. They wash their clothes with a single gallong of water
-                     — no way to know if it's even clean, no way to make it last.</em>
-                <div class="social-proof-2">Observed near a dormitory in Manila</div>
-            </div>
-        </section>
-        
-        <section>
-            <div class="card-container2">
-                <div class="card-stat">
-                        <div class="number" style="color: #E2A33D;">55 deaths/day</div>
-                        <div class="label">
-                            linked to open defecation in sewer canals, a result of limited sanitation access
-                            across the Philippines. Sewer canals nationwide remain open, clogged with debris, 
-                            and largely unmaintained by government programs.
-                        </div>
-                        <div class="source">WHO, 2017</div>
-                </div>
-            </div>        
-        </section>
-    </div>
-<hr>
-        <!--Part 02: The Solution-->
-    <div class="parent-3">
-        <h1 class="part2-part" id="Solution" style="color:#7FD8CE;">Part 02 — Toward a solution</h1>
-        <h3 class="part2-title">What clearing the water actually takes</h3>
-        <p class="part2-desc" style="margin: 5px;">
-            Fixing this doesn't require reinventing anything — it requires finishing what's already
-            been started. Three conrete, sequential fixes at the sewage level, backed by frameworks
-            already in motion since 2014.
-        </p>
-<hr>
-        <section>
-        <div class="step-container">
-            <div class="step-num">STEP 01</div>
-            <div class="step-desc">Clear the open canals</div>
-            <p>
-                Remove debris, dirt, and trash from the sewer canals first. This alone restores the wastewate
-                flow and cuts the odor that currently forces pedestrians to swerve away from sidewalks nationwide.
-            </p>
-
-            <div class="step-num">STEP 02</div>
-            <div class="step-desc">Close the canals</div>
-            <p>
-                Covering open canals reduces contamination exposure and foul odor at the source, while reclaiming
-                 usable sidewalk space in dense urban areas.
-            </p>
-
-            <div class="step-num">STEP 03</div>
-            <div class="step-desc">Treat the wastewater</div>
-            <p>
-                Proper, timely wastewater treatment — not just containment — is what ultimately makes the water
-                safe again for the communities living closest to it.
-            </p>
-        </div>    
-        </section>
-<hr>
-        <section>
-            <div class="since-container" id="SinceLast">
-                <div class="since">Since 2014</div>
-                <div class="since-ssp">Sanitation Safety Planning (SSP)</div>
-                <p>
-                    WHO, the Asian Development Bank, and the Philippine DOH use SSP as a household-level risk assessment
-                    tool — a direct stepping stone toward the 2030 targets for reduced water-pollution deaths and water
-                    sanitation.
-                </p>
-            </div>
-
-            <div class="since-container">
-                <div class="since">Target: 2020</div>
-                <div class="since-ssp">National Sewerage &amp; Septage Management Program</div>
-                <p>
-                    The Philippine government set a water-quality goal through NSSMP for 2020. As of 2025, no noticeable
-                    improvement to the sewage system has followed — the gap between policy and pavement.
-                </p>
-            </div>
-
-            <div class="since-container">
-                <div class="since">Ongoing</div>
-                <div class="since-ssp">Private vs. Public maintenance</div>
-                <p>
-                    Visible maintenance along Manila's streets is largely private water suppliers serving paying customers
-                    — not government-opereated repair of the public sewage system that everyone depends on.
-                </p>
-            </div>
-        </section>
-    </div>
-<hr>
-        <!--CTA: Call to Action-->
-    <div class="parent-4">  
-        <section>
-            <div class="cta">
-                <h1>Every organization willing to help moves this forward.</h1>
-                <p>
-                    Governments have set targets before and missed them. What's closed the gap so far has largely been individual
-                    donations, awareness efforts, and organizations working without expecting anything in return. That's where
-                    support — and funding — has the clearest path to impact.
-                </p>
+        <div class="parent-1">
+                <div class="hero-header" id="Dive">
+                    <span class="sdg6" style="color:#7FD8CE;">SDG 6 — CLEAN WATER AND SANITATION</span>
                 
-                <a href="#" class="btn">Donate</a>
-                <a href="#" class="btn">How to Help?</a>
-            </div>
-        </section>
-    </div>
+                    <h1 style="color: #F0EDE3;">Water, a basic need: <br><em style="color:#7FD8CE">Dive in.</em></h1>
+                    <p class="header-p">
+                        Safe water isn't a convenience — the UN calls it a human right.<br> Yet from global
+                        statistics down to a single street in Manila, <br>access to clean water and working
+                        sanitation remains <br>out of reach for millions.
+                    </p>
+                </div>
+
+            <section>
+                <div class="headline-stat">
+                    <div>
+                        <div class="number">2.5B</div>
+                        <div class="label">People without access to safe water &amp; basic sanitation</div>
+                    </div>
+
+                    <div>
+                        <div class="number">1 in 10</div>
+                        <div class="label">Filipinos still can't access clean water resources</div>
+                    </div>
+
+                    <div>
+                        <div class="number">55/day</div>
+                        <div class="label">Filipino deaths linked to poor sanitationa access</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+            <hr>
+            <!--Part 1: The Problem-->
+        <div class="parent-2">
+            <section>
+                <div class="part1" id="Problem">
+                <h1 class="part1-part" style="color:#7FD8CE;">Part 01 — The problem</h1>
+                <h3 class="part1-title">A basic need, still out of reach</h3>
+                <p class="part1-desc"">
+                    Water sustains every ecosystem and every person in it. But unsafe water <br>and absent
+                    sanitation still drive disease, death, and daily indignity —<br> worldwide, and block
+                    in the Philippines.
+                </p>
+                </div>
+            <div class="card-stat-container">    
+                <div class="card-stat">
+                        <div class="number">73%</div>
+                        <div class="label">of the global population had access to water free from contamination in 2002 — meaning over a quarter did not.</div>
+                        <div class="source">WHO, 2023.</div>
+                </div>
+                    </tr>
+                <div class="card-stat">
+                        <div class="number">2B+</div>
+                        <div class="label">people live in water-scarce countries, a figure worsened by climate change and population growth.</div>
+                        <div class="source">WHO, 2023.</div>
+                </div>
+
+                <div class="card-stat">
+                        <div class="number">1 in 4</div>
+                        <div class="label">worldwide are projected to face water shortages by 2050 if current trends continue.</div>
+                        <div class="source">UNDP, n.d.</div>
+                </div>
+
+                <div class="card-stat">
+                        <div class="number">20M</div>
+                        <div class="label">Filipinos have no access to sanitation or proper sewage facilities.</div>
+                        <div class="source">Rappler, 2013.</div>
+                </div>
+
+                <div class="card-stat">
+                        <div class="number">40.3%</div>
+                        <div class="label">of Filipino families rely on water refilling stations for drinking water</div>
+                        <div class="source">Wateroam, 2020.</div>
+                </div>
+                
+                <div class="card-stat">
+                        <div class="number">39%</div>
+                        <div class="label">had access to safe sanitation as of 2015 — the starting point of the SDGs are still working to lift.</div>
+                        <div class="source">UNDP, n.d.</div>
+                </div>
+            </div>    
+            </section>
+
+            <section>
+                <div class="progress" id="GProgress">
+                    <div>
+                        <div class="progress-header">
+                        <h1>Global Wash progress, 2015 → 2024</h1>
+                        </div>
+                
+                        <div class="progress-caption">Safely managed drinking water</div>
+                        <div class="progress-percent"><strong>68% → 74%</strong></div>
+                        <div class="prog-track" style="--target: 74%">
+                            <div class="prog-fill"></div>
+                        </div>
+                
+                        <div class="progress-caption">Safely managed sanitation</div>
+                        <div class="progress-percent"><strong>48% → 58%</strong></div>
+                        <div class="prog-track" style="--target: 58%">
+                            <div class="prog-fill"></div>
+                        </div>
+
+                        <div class="progress-caption">Basic hygiene services</div>
+                        <div class="progress-percent"><strong>66% → 80%</strong></div>
+                        <div class="prog-track" style="--target: 80%">
+                            <div class="prog-fill"></div>
+                        </div>
+
+                        <div class="progress-source">
+                            <p>Source: The SDG Report 2025, UN Dept. of Economic and Social Affairs</p>    
+                            <!--<div>
+                                <a href="https://www.sdgs.un.org/goals/goal6" class="a-ref">sdgs.un.org/goals/goal6</a>
+                            </div>-->
+                        </div>
+                    </div>    
+                </div>
+            </section>
+            <hr>        
+            <section>
+                <div class="social-proof" id="SProof">
+                        <em>A family lives beside a pedicab on a Manila pavement, sheets of old tarpaulin their
+                        only wall against the rain. They wash their clothes with a single gallong of water
+                        — no way to know if it's even clean, no way to make it last.</em>
+                    <div class="social-proof-2">Observed near a dormitory in Manila</div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="card-container2">
+                    <div class="card-stat">
+                            <div class="number" style="color: #E2A33D;">55 deaths/day</div>
+                            <div class="label">
+                                linked to open defecation in sewer canals, a result of limited sanitation access
+                                across the Philippines. Sewer canals nationwide remain open, clogged with debris, 
+                                and largely unmaintained by government programs.
+                            </div>
+                            <div class="source">WHO, 2017</div>
+                    </div>
+                </div>        
+            </section>
+        </div>
+        <hr>
+            <!--Part 02: The Solution-->
+        <div class="parent-3">
+            <h1 class="part2-part" id="Solution" style="color:#7FD8CE;">Part 02 — Toward a solution</h1>
+            <h3 class="part2-title">What clearing the water actually takes</h3>
+            <p class="part2-desc" style="margin: 5px;">
+                Fixing this doesn't require reinventing anything — it requires finishing what's already
+                been started. Three conrete, sequential fixes at the sewage level, backed by frameworks
+                already in motion since 2014.
+            </p>
+            <hr>
+            <section>
+            <div class="step-container">
+                <div class="step-num">STEP 01</div>
+                <div class="step-desc">Clear the open canals</div>
+                <p>
+                    Remove debris, dirt, and trash from the sewer canals first. This alone restores the wastewate
+                    flow and cuts the odor that currently forces pedestrians to swerve away from sidewalks nationwide.
+                </p>
+
+                <div class="step-num">STEP 02</div>
+                <div class="step-desc">Close the canals</div>
+                <p>
+                    Covering open canals reduces contamination exposure and foul odor at the source, while reclaiming
+                    usable sidewalk space in dense urban areas.
+                </p>
+
+                <div class="step-num">STEP 03</div>
+                <div class="step-desc">Treat the wastewater</div>
+                <p>
+                    Proper, timely wastewater treatment — not just containment — is what ultimately makes the water
+                    safe again for the communities living closest to it.
+                </p>
+            </div>    
+            </section>
+            <hr>
+            <section>
+                <div class="since-container" id="SinceLast">
+                    <div class="since">Since 2014</div>
+                    <div class="since-ssp">Sanitation Safety Planning (SSP)</div>
+                    <p>
+                        WHO, the Asian Development Bank, and the Philippine DOH use SSP as a household-level risk assessment
+                        tool — a direct stepping stone toward the 2030 targets for reduced water-pollution deaths and water
+                        sanitation.
+                    </p>
+                </div>
+
+                <div class="since-container">
+                    <div class="since">Target: 2020</div>
+                    <div class="since-ssp">National Sewerage &amp; Septage Management Program</div>
+                    <p>
+                        The Philippine government set a water-quality goal through NSSMP for 2020. As of 2025, no noticeable
+                        improvement to the sewage system has followed — the gap between policy and pavement.
+                    </p>
+                </div>
+
+                <div class="since-container">
+                    <div class="since">Ongoing</div>
+                    <div class="since-ssp">Private vs. Public maintenance</div>
+                    <p>
+                        Visible maintenance along Manila's streets is largely private water suppliers serving paying customers
+                        — not government-opereated repair of the public sewage system that everyone depends on.
+                    </p>
+                </div>
+            </section>
+        </div>
+        <hr>
+            <!--CTA: Call to Action-->
+        <div class="parent-4">  
+            <section>
+                <div class="cta">
+                    <h1>Every organization willing to help moves this forward.</h1>
+                    <p>
+                        Governments have set targets before and missed them. What's closed the gap so far has largely been individual
+                        donations, awareness efforts, and organizations working without expecting anything in return. That's where
+                        support — and funding — has the clearest path to impact.
+                    </p>
+                    
+                    <a href="#" class="btn">Donate</a>
+                    <a href="#" class="btn">How to Help?</a>
+                </div>
+            </section>
+        </div>
     </body>
         <hr>
     <footer>
