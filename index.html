@@ -38,7 +38,7 @@
                     margin-left: 10px;
                     margin-right: 10px;
                 }
-                
+
             }
             html {
                 scroll-behavior: smooth;
@@ -54,35 +54,30 @@
 
             /*Hero css*/
              .hero-header{      
-                padding: 0px 0px;
+                padding: 10px;
                 text-align: left;
                 font-family: 'Fraunces', serif;
                 font-weight: 600;
                 font-size: 25px;
                 height:fit-content;
-                width:fit-content;
+                width: 100%;
                 align-items: center;
                 margin: auto;
             }
-            /*Fonts to be used
-            font-family: 'Fraunces', serif; NUMBER
-            font-family: 'IBM Plex Sans', sans-serif; LABEL
-            font-family: 'IBM Plex Mono', monospace; PARAGRAPH
-            */
-
+      
             /*Css*/
             .header-p{
+                margin-top: 10px;
                 font-size: 20px;
+                margin-bottom: 10px;
             }
             /*parent-1 css*/
             .number{
                 font-family: 'Fraunces', serif;
+                text-align: justify;
             }
             .label{
                 font-family: 'IBM Plex Sans', sans-serif;
-            }
-            .sdg6{
-                font-family: 'IBM Plex Mono', monospace;
             }
             .part1-part{
                 font-family: 'IBM Plex Mono', monospace;
@@ -206,6 +201,7 @@
                 margin-left: 30px;
                 margin-right: 30px;
                 margin-bottom: 60px;
+                color: #AFC0BE;
             }
             .progress-caption{
                 text-align: left;
@@ -255,7 +251,7 @@
             }
             .social-proof-2{
                 margin-top: 15px;
-                margin-bottom: 120px;
+                margin-bottom: 15px;
                 color:rgba(175,192,190,0.55);
             }
 
@@ -283,10 +279,13 @@
 
             /*Steps of Solutions*/
             .step-container{
-                text-align: left;
+                text-align: justify;
                 margin: 50px;
+                background-color: #0F2A32;
+                border: 1px solid rgba(175,192,190,0.55);
             }
             .step-num{
+                padding: 10px;
                 color: #7FD8CE;
                 font-family: 'Fraunces', serif;
                 margin-bottom: 10px;
@@ -294,12 +293,14 @@
                 font-family: 'Fraunces', serif;
             }
             .step-desc{
-                color: #F0EDE3;
+                padding: 10px;
+                color: #E2A33D;
                 margin-bottom: 10px;
                 font-size: 20px;
                 font-family: 'IBM Plex Sans', sans-serif;
             }
             .step-container p{
+                padding: 10px;
                 color: #AFC0BE;
                 margin-bottom: 25px;
                 font-size: 18px;
@@ -311,6 +312,7 @@
                 padding: 10px;
                 margin: 50px;
                 color:#F0EDE3;
+                text-align: left;
             }
             .parent-4-part1{
                 height: fit-content;
@@ -337,10 +339,14 @@
                 border-radius: 4px;
                 border: 1px solid rgba(175,192,190,0.55);
                 cursor: pointer;
-                background-color: #0F2A32;
+                background-color: #0F2A32;    
             }
-            .parent-4 .cta{
-                text-align: left;
+            .parent-4 a:hover{
+                color: #7FD8CE;
+                border-color: #7FD8CE;
+            }
+            .parent-4 a:focus{
+                opacity: 55%;
             }
 
             /*css of since, target, ongoing*/
@@ -348,7 +354,7 @@
                 margin: 25px;
                 padding: 15px;
                 border: 1px solid rgba(175,192,190,0.55);
-                text-align: left;
+                text-align: justify;
                 background-color: #0F2A32;
             }
             .since{
@@ -392,15 +398,48 @@
                 cursor: pointer;
                 background-color: #0F2A32;
             }
+            .footer-a:hover{
+                color: #7FD8CE;
+                border-color: #7FD8CE;
+            }
+            .footer-a:focus{
+                opacity: 55%;
+            }
             
+            /*css, top-bar*/
+            .top-bar{
+                background-color: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                display: flex;
+                text-align: left;
+                 background: linear-gradient(180deg, rgba(15,42,50,0.95) 0%, rgba(10,31,38,0.85) 100%);
+                border-bottom: 1px solid rgba(175,192,190,0.2);
+                margin-bottom: 15px;
+            }
+            .top-bar .sdg6{
+                font-family: 'IBM Plex Sans', sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+                padding: 10px;
+            }
+            .top-bar a{
+                color: #7FD8CE;
+            }
         </style>
     </head>
+
     <body>
+        <div class="top-bar">
+            <span class="sdg6" style="color: #AFC0BE;"> SDG 6 | <a>CLEAN WATER AND SANITATION</a></span>
+        </div>
+
         <!--Hero-->
         <div class="parent-1">
-                <div class="hero-header" id="Dive">
-                    <span class="sdg6" style="color:#7FD8CE;">SDG 6 — CLEAN WATER AND SANITATION</span>
-                
+                <div class="hero-header" id="Dive">             
                     <h1 style="color: #F0EDE3;">Water, a basic need: <br><em style="color:#7FD8CE">Dive in.</em></h1>
                     <p class="header-p">
                         Safe water isn't a convenience — the UN calls it a human right.<br> Yet from global
@@ -558,12 +597,16 @@
                     flow and cuts the odor that currently forces pedestrians to swerve away from sidewalks nationwide.
                 </p>
 
+                <hr>
+
                 <div class="step-num">STEP 02</div>
                 <div class="step-desc">Close the canals</div>
                 <p>
                     Covering open canals reduces contamination exposure and foul odor at the source, while reclaiming
                     usable sidewalk space in dense urban areas.
                 </p>
+                
+                <hr>
 
                 <div class="step-num">STEP 03</div>
                 <div class="step-desc">Treat the wastewater</div>
@@ -605,7 +648,8 @@
             </section>
         </div>
         <hr>
-            <!--CTA: Call to Action-->
+
+        <!--CTA: Call to Action-->
         <div class="parent-4">  
             <section>
                 <div class="cta">
@@ -622,7 +666,9 @@
             </section>
         </div>
     </body>
-        <hr>
+
+    <hr>
+
     <footer>
         <p style="margin-bottom: 15px; margin-top: 15px;"> Based on the research of Alexter Cueno into SDG 6 — Clean Water and Sanitation, with data from WHO, UNDP, the United Nations, Rappler, and Wateroam.</p>
         <a href="https://drive.google.com/file/d/1cvdZk40E4NBnfuGv4cICx8ayMm2ANluo/view?usp=sharing" class="footer-a">Original Paper</a>
