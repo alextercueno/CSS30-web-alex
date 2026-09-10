@@ -63,6 +63,16 @@
                 width: fit-content;
                 align-items: center;
                 margin: auto;
+                display: flex;
+                gap: 40px;
+                flex-wrap: warp;
+            }
+            .hero-img{
+                width: 100%;        /* fills whatever container it's in */
+                max-width: 600px;    
+                height: auto;         /* keeps the image's natural aspect ratio, prevents stretching/squishing */
+                display: block;       
+                margin: 0 auto;
             }
       
             /*Css*/
@@ -429,6 +439,13 @@
             .top-bar a{
                 color: #7FD8CE;
             }
+            img{
+                width: 100%;        /* fills whatever container it's in */
+                max-width: 600px;    
+                height: auto;         /* keeps the image's natural aspect ratio, prevents stretching/squishing */
+                display: block;       
+                margin: 0 auto;
+            }
         </style>
     </head>
 
@@ -446,6 +463,9 @@
                         statistics down to a single street in Manila, <br>access to clean water and working
                         sanitation remains <br>out of reach for millions.
                     </p>
+                </div>
+                <div class="hero-img">
+                    <img src="https://sdgs.un.org/sites/default/files/2026-07/Goals_Under_Review_UN_SDG_Report_2026_Goal_6_C.png" alt="Hygiene Services">
                 </div>
 
             <section>
@@ -522,6 +542,12 @@
             <section>
                 <div class="progress" id="GProgress">
                     <div>
+                        <div class="progress-img">
+                            <figure>
+                                <img src="https://sdgs.un.org/sites/default/files/2025-07/2025_SDG_Goal-Level_Social_Media_Cards_Goal_6_small.png" alt="Global Wash Progress">
+                            </figure>
+                        </div>
+
                         <div class="progress-header">
                         <h1>Global Wash progress, 2015 → 2024</h1>
                         </div>
