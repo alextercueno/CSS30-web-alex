@@ -446,538 +446,249 @@
                 display: block;       
                 margin: 0 auto;
             }
-            /* ================================
-       SDG 6 DASHBOARD
-       Self-contained / no dependencies
-       ================================ */
-
-    :root {
-      --blue: #087f8c;
-      --blue-dark: #075e68;
-      --teal: #0b9a8e;
-      --green: #39a96b;
-      --yellow: #f2b84b;
-      --red: #dc5a5a;
-
-      --text: #17313a;
-      --muted: #64777d;
-      --border: #d9e5e8;
-      --bg: #f4f8f9;
-      --card: #ffffff;
-
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(15, 52, 61, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-
-    button,
-    select {
-      font: inherit;
-    }
-
-    /* ================================
-       COMPONENT
-       ================================ */
-
-    .sdg6-dashboard {
-      width: min(1180px, calc(100% - 32px));
-      margin: 40px auto;
-    }
-
-    /* ================================
-       HERO
-       ================================ */
-
-    .sdg6-hero {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(28px, 5vw, 52px);
-      border-radius: 24px;
-      color: #fff;
-
-      background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(255,255,255,.18),
-          transparent 28%
-        ),
-        linear-gradient(
-          135deg,
-          #075e68,
-          #087f8c 55%,
-          #0b9a8e
-        );
-
-      box-shadow: var(--shadow);
-    }
-
-    .sdg6-eyebrow {
-      margin-bottom: 10px;
-      color: rgba(255,255,255,.8);
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .sdg6-hero h1 {
-      max-width: 800px;
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.05;
-      letter-spacing: -.04em;
-    }
-
-    .sdg6-hero p {
-      max-width: 760px;
-      margin: 18px 0 0;
-      color: rgba(255,255,255,.88);
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    /* ================================
-       CONTROLS
-       ================================ */
-
-    .sdg6-controls {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      align-items: end;
-
-      margin-top: 20px;
-      padding: 16px;
-
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .sdg6-label {
-      display: block;
-      margin-bottom: 7px;
-      font-size: .8rem;
-      font-weight: 800;
-    }
-
-    .sdg6-select {
-      width: 100%;
-      min-height: 46px;
-      padding: 10px 12px;
-
-      border: 1px solid #c9dadd;
-      border-radius: 10px;
-
-      background: #fff;
-      color: var(--text);
-
-      cursor: pointer;
-    }
-
-    .sdg6-select:hover {
-      border-color: var(--blue);
-    }
-
-    .sdg6-select:focus-visible,
-    .sdg6-button:focus-visible,
-    .sdg6-point:focus-visible {
-      outline: 3px solid rgba(8,127,140,.25);
-      outline-offset: 3px;
-    }
-
-    .sdg6-button {
-      min-height: 46px;
-      padding: 0 18px;
-
-      border: 0;
-      border-radius: 10px;
-
-      background: var(--blue);
-      color: white;
-
-      font-weight: 800;
-      cursor: pointer;
-
-      transition:
-        background .2s ease,
-        transform .2s ease;
-    }
-
-    .sdg6-button:hover {
-      background: var(--blue-dark);
-      transform: translateY(-1px);
-    }
-
-    .sdg6-status {
-      min-height: 18px;
-      margin-top: 5px;
-      color: var(--red);
-      font-size: .75rem;
-      font-weight: 700;
-    }
-
-    /* ================================
-       KPI CARDS
-       ================================ */
-
-    .sdg6-kpis {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .sdg6-kpi {
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .sdg6-kpi-code {
-      color: var(--blue);
-      font-size: .7rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-    }
-
-    .sdg6-kpi-value {
-      margin-top: 4px;
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: -.05em;
-    }
-
-    .sdg6-kpi-label {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: .75rem;
-      line-height: 1.4;
-    }
-
-    /* ================================
-       MAIN CONTENT
-       ================================ */
-
-    .sdg6-main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(280px, .8fr);
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .sdg6-card {
-      min-width: 0;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .sdg6-card-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-
-    .sdg6-card h2,
-    .sdg6-card h3 {
-      margin: 0;
-      line-height: 1.25;
-    }
-
-    .sdg6-card h3 {
-      font-size: 1.05rem;
-    }
-
-    .sdg6-subtitle {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: .8rem;
-      line-height: 1.45;
-    }
-
-    .sdg6-badge {
-      flex-shrink: 0;
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: #e7f6f7;
-      color: var(--blue-dark);
-      font-size: .7rem;
-      font-weight: 900;
-    }
-
-    /* ================================
-       CHART
-       ================================ */
-
-    .sdg6-chart-container {
-      position: relative;
-      width: 100%;
-      overflow-x: auto;
-    }
-
-    .sdg6-chart {
-      display: block;
-      width: 100%;
-      min-width: 560px;
-      height: 330px;
-    }
-
-    .grid-line {
-      stroke: #e6edef;
-      stroke-width: 1;
-    }
-
-    .axis-label {
-      fill: #73858a;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .chart-line {
-      fill: none;
-      stroke: var(--blue);
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .chart-area {
-      fill: url(#chartGradient);
-      opacity: .18;
-    }
-
-    .sdg6-point {
-      fill: white;
-      stroke: var(--blue);
-      stroke-width: 3;
-      cursor: pointer;
-    }
-
-    .sdg6-point:hover {
-      r: 8;
-    }
-
-    .sdg6-point.missing {
-      stroke: #9caeb3;
-      fill: #edf2f3;
-    }
-
-    .sdg6-tooltip {
-      position: absolute;
-      z-index: 10;
-
-      display: none;
-
-      padding: 9px 11px;
-      min-width: 140px;
-
-      border-radius: 9px;
-      background: #17313a;
-      color: white;
-
-      font-size: .75rem;
-      line-height: 1.4;
-
-      box-shadow: 0 8px 25px rgba(0,0,0,.18);
-      pointer-events: none;
-    }
-
-    .sdg6-tooltip strong {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    /* ================================
-       EXPLANATION
-       ================================ */
-
-    .sdg6-big-number {
-      margin: 20px 0 12px;
-
-      color: var(--blue-dark);
-
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 950;
-      line-height: 1;
-      letter-spacing: -.06em;
-    }
-
-    .sdg6-explanation {
-      color: #53676d;
-      font-size: .9rem;
-      line-height: 1.65;
-    }
-
-    .sdg6-note {
-      margin-top: 20px;
-      padding: 12px;
-
-      border-left: 3px solid var(--yellow);
-      border-radius: 0 8px 8px 0;
-
-      background: #fff9ec;
-      color: #67552e;
-
-      font-size: .78rem;
-      line-height: 1.5;
-    }
-
-    /* ================================
-       DETAIL SECTION
-       ================================ */
-
-    .sdg6-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .sdg6-detail-list {
-      display: grid;
-      gap: 9px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .sdg6-detail-item {
-      padding: 11px;
-      border-radius: 10px;
-      background: #f5f9fa;
-    }
-
-    .sdg6-detail-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: .8rem;
-    }
-
-    .sdg6-detail-label {
-      color: #53676d;
-    }
-
-    .sdg6-detail-value {
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .sdg6-meter {
-      height: 5px;
-      margin-top: 7px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: #dce7e9;
-    }
-
-    .sdg6-meter span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--teal)
-      );
-    }
-
-    .sdg6-context {
-      color: #53676d;
-      font-size: .9rem;
-      line-height: 1.7;
-    }
-
-    /* ================================
-       SOURCE
-       ================================ */
-
-    .sdg6-source {
-      margin-top: 20px;
-      padding: 16px;
-
-      border: 1px dashed #cbdcdf;
-      border-radius: 14px;
-
-      color: var(--muted);
-      background: #f8fbfb;
-
-      font-size: .76rem;
-      line-height: 1.6;
-    }
-
-    .sdg6-source a {
-      color: var(--blue-dark);
-      font-weight: 800;
-    }
-
-    /* ================================
-       RESPONSIVE
-       ================================ */
-
-    @media (max-width: 1000px) {
-      .sdg6-kpis {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .sdg6-main {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .sdg6-dashboard {
-        width: min(100% - 20px, 1180px);
-        margin: 20px auto;
-      }
-
-      .sdg6-controls {
-        grid-template-columns: 1fr;
-      }
-
-      .sdg6-kpis {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .sdg6-details {
-        grid-template-columns: 1fr;
-      }
-
-      .sdg6-card {
-        padding: 18px;
-      }
-    }
-
-    @media (max-width: 440px) {
-      .sdg6-kpis {
-        grid-template-columns: 1fr;
-      }
-
-      .sdg6-hero {
-        padding: 28px 22px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
-    }
+           
+  :root{
+    --abyss:#071c22;
+    --deep:#0d2a30;
+    --panel:#123a41;
+    --panel-line:#1f5058;
+    --foam:#eaf5f2;
+    --mist:#9fc2c0;
+    --teal:#37c9bd;
+    --teal-dim:#1d6d68;
+    --coral:#ff6b5b;
+    --gold:#f2b84e;
+    --grey:#4a6a6d;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse at 20% -10%, #123c43 0%, var(--abyss) 55%);
+    color:var(--foam);
+    font-family:'Space Grotesk', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:clamp(20px,4vw,56px);
+  }
+  .wrap{max-width:1180px;margin:0 auto;}
+ 
+  header{margin-bottom:34px;}
+  header .kicker{
+    color:var(--teal);
+    font-size:13px;
+    letter-spacing:.04em;
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(28px,4vw,44px);
+    line-height:1.08;
+    margin:0 0 14px;
+    max-width:14ch;
+  }
+  header p.lede{
+    color:var(--mist);
+    max-width:62ch;
+    line-height:1.55;
+    font-size:15.5px;
+    margin:0;
+  }
+ 
+  .national{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;
+    background:var(--panel-line);
+    border:1px solid var(--panel-line);
+    border-radius:14px;
+    overflow:hidden;
+    margin:32px 0 40px;
+  }
+  .national .cell{
+    background:var(--deep);
+    padding:18px 20px;
+  }
+  .national .cell .num{
+    font-family:'Fraunces', serif;
+    font-size:30px;
+    color:var(--foam);
+  }
+  .national .cell .num sup{font-size:16px; color:var(--teal);}
+  .national .cell .lbl{
+    font-size:12.5px;
+    color:var(--mist);
+    margin-top:4px;
+    line-height:1.35;
+  }
+ 
+  .board{
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:26px;
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .board{grid-template-columns:1fr;}
+  }
+ 
+  .map-card{
+    background:var(--deep);
+    border:1px solid var(--panel-line);
+    border-radius:20px;
+    padding:22px 22px 16px;
+  }
+  .map-card h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+    margin:0 0 4px;
+  }
+  .map-card .sub{
+    color:var(--mist);
+    font-size:13px;
+    margin:0 0 16px;
+  }
+ 
+  .toggles{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .toggles button{
+    font-family:'Space Grotesk', sans-serif;
+    background:transparent;
+    border:1px solid var(--panel-line);
+    color:var(--mist);
+    padding:7px 13px;
+    border-radius:999px;
+    font-size:12.5px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .toggles button:hover{border-color:var(--teal);color:var(--foam);}
+  .toggles button.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#052321;
+    font-weight:600;
+  }
+ 
+  svg#map{width:100%;height:auto;display:block;}
+  .island{fill:#0a3038; stroke:#1c4a52; stroke-width:1.2;}
+  .region-dot{cursor:pointer; transition:r .15s ease, stroke-width .15s ease;}
+  .region-dot:hover{stroke-width:3;}
+  .region-dot.selected{stroke:#ffffff; stroke-width:3;}
+  .region-label{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:9.5px;
+    fill:var(--mist);
+    pointer-events:none;
+  }
+ 
+  .legend{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:14px;
+    font-size:11.5px;
+    color:var(--mist);
+  }
+  .legend .bar{
+    height:8px;
+    flex:1;
+    border-radius:5px;
+    background:linear-gradient(90deg, var(--coral), var(--gold), var(--teal));
+  }
+  .legend .nodata{
+    display:inline-flex;align-items:center;gap:5px;
+    white-space:nowrap;
+  }
+  .legend .nodata i{
+    width:9px;height:9px;border-radius:50%;
+    background:transparent;border:1.5px dashed var(--grey);
+    display:inline-block;
+  }
+ 
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:20px;
+    padding:24px;
+    min-height:420px;
+  }
+  .panel .eyebrow{
+    font-size:12px;
+    color:var(--teal);
+    margin:0 0 6px;
+  }
+  .panel h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:26px;
+    margin:0 0 4px;
+  }
+  .panel .island-name{
+    color:var(--mist);
+    font-size:13px;
+    margin:0 0 22px;
+  }
+ 
+  .metric{margin-bottom:16px;}
+  .metric .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:6px;
+    gap:10px;
+  }
+  .metric .name{font-size:13.5px; color:var(--foam);}
+  .metric .val{font-family:'Fraunces', serif; font-size:17px;}
+  .metric .val .yr{font-size:11px; color:var(--mist); font-family:'Space Grotesk',sans-serif; margin-left:4px;}
+  .metric .track{
+    height:7px;
+    background:#0a2a2f;
+    border-radius:5px;
+    overflow:hidden;
+  }
+  .metric .fill{
+    height:100%;
+    border-radius:5px;
+  }
+  .metric .empty{
+    font-size:12.5px;
+    color:var(--grey);
+    font-style:italic;
+    padding:4px 0;
+  }
+ 
+  .placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    height:100%;
+    color:var(--mist);
+    font-size:14px;
+    line-height:1.6;
+    padding-top:60px;
+  }
+  .placeholder .big{
+    font-family:'Fraunces', serif;
+    font-size:22px;
+    color:var(--foam);
+    margin-bottom:8px;
+  }
+ 
+  footer{
+    margin-top:34px;
+    padding-top:18px;
+    border-top:1px solid var(--panel-line);
+    color:var(--grey);
+    font-size:11.5px;
+    line-height:1.6;
+  }
+  footer a{color:var(--mist);}
         </style>
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-TL55SZNLC3"></script>
@@ -1214,1654 +925,222 @@
                 </div>
             </section>
         </div>
+<hr>
 
-        <main class="sdg6-dashboard">
-
-    <!-- ================================
-         HERO
-         ================================ -->
-
-    <section class="sdg6-hero">
-
-      <div class="sdg6-eyebrow">
-        SDG 6 · Philippines
+<div class="wrap">
+ 
+  <header>
+    <p class="kicker">SDG 6 · Clean Water and Sanitation</p>
+    <h1>Water and sanitation access, region by region</h1>
+    <p class="lede">Click any region to see how it's doing on safe drinking water, sanitation, and handwashing — drawn from the Philippine Statistics Authority's 2024 Annual Poverty Indicators Survey (preliminary) and related national data.</p>
+  </header>
+ 
+  <div class="national">
+    <div class="cell"><div class="num">53.1<sup>%</sup></div><div class="lbl">families with safely managed drinking water, 2024</div></div>
+    <div class="cell"><div class="num">97.5<sup>%</sup></div><div class="lbl">families with at least basic drinking water, 2024</div></div>
+    <div class="cell"><div class="num">84.7<sup>%</sup></div><div class="lbl">families with basic sanitation, 2024</div></div>
+    <div class="cell"><div class="num">2.6<sup>%</sup></div><div class="lbl">families still practicing open defecation, 2024</div></div>
+    <div class="cell"><div class="num">94.0<sup>%</sup></div><div class="lbl">families with basic handwashing facilities, 2024</div></div>
+  </div>
+ 
+  <div class="board">
+    <div class="map-card">
+      <h2>Tap a region</h2>
+      <p class="sub">Colour shows the selected indicator. Hollow dots mean that indicator wasn't separately published for that region in the latest release.</p>
+ 
+      <div class="toggles" id="toggles"></div>
+ 
+      <svg id="map" viewBox="0 0 450 760" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic map of the Philippines by region">
+        <!-- stylised archipelago silhouette: Luzon (north), Mindoro/Palawan/Visayas (centre), Mindanao (south) — illustrative, not a precise boundary map -->
+        <path class="island" d="M260,30 C300,25 330,50 325,85 C355,95 365,130 345,155 C370,170 375,200 350,215 C375,235 370,265 340,270 C360,290 355,320 325,325 C345,350 330,380 300,370 C310,395 295,415 270,400 C250,410 235,390 245,370 C220,365 210,340 225,320 C200,310 195,285 215,270 C190,255 190,225 215,215 C195,195 200,165 225,160 C205,140 210,110 235,100 C220,80 225,50 260,30 Z"/>
+        <path class="island" d="M175,330 C195,325 210,340 205,360 C215,375 205,395 185,390 C170,400 155,390 158,370 C145,355 155,335 175,330 Z"/>
+        <path class="island" d="M90,470 C100,455 115,450 120,465 C135,460 140,475 130,485 C140,500 130,515 118,510 C122,525 110,535 100,525 C105,540 92,548 85,535 C90,522 78,515 85,505 C75,495 82,482 92,485 C82,475 88,462 90,470 Z"/>
+        <path class="island" d="M210,430 C230,425 245,440 240,455 C250,470 235,485 218,478 C200,485 190,468 198,455 C188,445 198,432 210,430 Z"/>
+        <path class="island" d="M250,455 C268,450 280,465 275,480 C285,495 270,510 255,502 C240,508 232,490 240,478 C232,468 240,455 250,455 Z"/>
+        <path class="island" d="M285,440 C292,435 298,450 295,470 C300,490 292,510 285,505 C278,495 280,470 278,455 C275,445 280,440 285,440 Z"/>
+        <path class="island" d="M300,495 C312,490 320,500 315,512 C320,522 308,530 298,522 C292,512 295,500 300,495 Z"/>
+        <path class="island" d="M340,400 C360,390 375,405 368,425 C378,445 365,465 348,458 C335,470 322,455 330,438 C320,425 328,408 340,400 Z"/>
+        <path class="island" d="M320,440 C335,435 345,450 338,468 C345,485 330,498 318,488 C305,495 298,478 308,465 C300,452 310,440 320,440 Z"/>
+        <path class="island" d="M190,540 C220,525 260,520 290,530 C320,520 355,530 375,550 C400,545 420,565 410,585 C425,600 415,625 395,630 C405,650 390,670 370,665 C375,685 355,700 335,690 C320,710 295,705 285,685 C260,695 235,680 240,660 C210,665 190,645 200,625 C175,615 170,590 190,575 C170,565 175,545 190,540 Z"/>
+ 
+        <g id="dots"></g>
+        <g id="labels"></g>
+      </svg>
+ 
+      <div class="legend">
+        <span>Lower access</span>
+        <span class="bar"></span>
+        <span>Higher access</span>
+        <span class="nodata"><i></i> not published</span>
       </div>
-
-      <h1>
-        Water, sanitation and community participation
-      </h1>
-
-      <p>
-        Explore selected Sustainable Development Goal 6 indicators
-        for the Philippines through interactive visualizations and
-        contextual explanations.
-      </p>
-
-    </section>
-
-
-    <!-- ================================
-         INDICATOR SELECTOR
-         ================================ -->
-
-    <section class="sdg6-controls">
-
-      <div>
-
-        <label
-          class="sdg6-label"
-          for="indicatorSelect"
-        >
-          Explore an indicator
-        </label>
-
-        <select
-          id="indicatorSelect"
-          class="sdg6-select"
-          aria-describedby="statusMessage"
-        >
-
-          <option value="sanitation">
-            6.2.1a — Safely managed sanitation
-          </option>
-
-          <option value="hygiene">
-            6.2.1b — Handwashing facility
-          </option>
-
-          <option value="wastewater">
-            Domestic wastewater flow generated — 2024
-          </option>
-
-          <option value="waterQuality">
-            6.3.2 — Ambient water quality
-          </option>
-
-          <option value="waterStress">
-            6.4.2 — Level of water stress
-          </option>
-
-          <option value="participationProcedures">
-            6.b.1 — Community participation procedures
-          </option>
-
-          <option value="participationLevel">
-            6.b.1 — Level of community participation
-          </option>
-
-        </select>
-
-        <div
-          id="statusMessage"
-          class="sdg6-status"
-          role="status"
-          aria-live="polite"
-        ></div>
-
+    </div>
+ 
+    <div class="panel" id="panel">
+      <div class="placeholder">
+        <div class="big">No region selected</div>
+        <div>Pick a dot on the map — try BARMM or NCR for the widest gap in the country's water access.</div>
       </div>
-
-      <button
-        type="button"
-        class="sdg6-button"
-        id="resetButton"
-      >
-        Reset view
-      </button>
-
-    </section>
-
-
-    <!-- ================================
-         KPI OVERVIEW
-         ================================ -->
-
-    <section
-      class="sdg6-kpis"
-      aria-label="Philippines SDG 6 overview"
-    >
-
-      <article class="sdg6-kpi">
-        <div class="sdg6-kpi-code">6.2.1a</div>
-        <div class="sdg6-kpi-value">62%</div>
-        <div class="sdg6-kpi-label">
-          Safely managed sanitation
-        </div>
-      </article>
-
-      <article class="sdg6-kpi">
-        <div class="sdg6-kpi-code">6.2.1b</div>
-        <div class="sdg6-kpi-value">99%</div>
-        <div class="sdg6-kpi-label">
-          Handwashing facility
-        </div>
-      </article>
-
-      <article class="sdg6-kpi">
-        <div class="sdg6-kpi-code">WASTEWATER</div>
-        <div class="sdg6-kpi-value">68%</div>
-        <div class="sdg6-kpi-label">
-          Domestic wastewater safely treated
-        </div>
-      </article>
-
-      <article class="sdg6-kpi">
-        <div class="sdg6-kpi-code">6.4.2</div>
-        <div class="sdg6-kpi-value">28%</div>
-        <div class="sdg6-kpi-label">
-          Level of water stress
-        </div>
-      </article>
-
-      <article class="sdg6-kpi">
-        <div class="sdg6-kpi-code">6.b.1</div>
-        <div class="sdg6-kpi-value">3 / 6</div>
-        <div class="sdg6-kpi-label">
-          High participation sub-sectors
-        </div>
-      </article>
-
-    </section>
-
-
-    <!-- ================================
-         CHART + EXPLANATION
-         ================================ -->
-
-    <section class="sdg6-main">
-
-      <article class="sdg6-card">
-
-        <header class="sdg6-card-header">
-
-          <div>
-
-            <h2 id="chartTitle">
-              6.2.1a — Safely managed sanitation
-            </h2>
-
-            <p
-              class="sdg6-subtitle"
-              id="chartSubtitle"
-            >
-              Philippines · 2024
-            </p>
-
-          </div>
-
-          <span
-            class="sdg6-badge"
-            id="chartUnit"
-          >
-            %
-          </span>
-
-        </header>
-
-        <div class="sdg6-chart-container">
-
-          <svg
-            id="chart"
-            class="sdg6-chart"
-            viewBox="0 0 760 330"
-            role="img"
-            aria-labelledby="chartTitle chartSubtitle"
-          ></svg>
-
-          <div
-            id="tooltip"
-            class="sdg6-tooltip"
-            role="tooltip"
-          ></div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================================
-           EXPLANATION CARD
-           ================================ -->
-
-      <aside class="sdg6-card">
-
-        <div class="sdg6-eyebrow"
-             style="color:var(--blue);">
-          Indicator insight
-        </div>
-
-        <h3 id="explanationTitle">
-          Safely managed sanitation
-        </h3>
-
-        <div
-          id="bigNumber"
-          class="sdg6-big-number"
-        >
-          62%
-        </div>
-
-        <div
-          id="explanation"
-          class="sdg6-explanation"
-        >
-          The displayed SDG 6 data show that 62.17%
-          of the population in the Philippines uses
-          a safely managed sanitation service.
-        </div>
-
-        <div
-          id="note"
-          class="sdg6-note"
-        >
-          The country snapshot rounds the displayed
-          value to 62%.
-        </div>
-
-      </aside>
-
-    </section>
-
-
-    <!-- ================================
-         DETAIL + CONTEXT
-         ================================ -->
-
-    <section class="sdg6-details">
-
-      <article class="sdg6-card">
-
-        <header class="sdg6-card-header">
-
-          <div>
-
-            <h3 id="detailTitle">
-              Sanitation service levels
-            </h3>
-
-            <p
-              id="detailSubtitle"
-              class="sdg6-subtitle"
-            >
-              Values displayed for the selected indicator
-            </p>
-
-          </div>
-
-        </header>
-
-        <ul
-          id="detailList"
-          class="sdg6-detail-list"
-        ></ul>
-
-      </article>
-
-
-      <article class="sdg6-card">
-
-        <header class="sdg6-card-header">
-
-          <div>
-
-            <h3>
-              What does this mean?
-            </h3>
-
-            <p class="sdg6-subtitle">
-              Context for the selected indicator
-            </p>
-
-          </div>
-
-        </header>
-
-        <div
-          id="context"
-          class="sdg6-context"
-        ></div>
-
-      </article>
-
-    </section>
-
-
-    <!-- ================================
-         SOURCE
-         ================================ -->
-
-    <footer class="sdg6-source">
-
-      <strong>Source:</strong>
-      UN-Water SDG 6 Data Portal — Philippines.
-
-      <br />
-
-      <a
-        href="https://www.sdg6data.org/en/country-or-area/Philippines"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View the Philippines SDG 6 data
-      </a>
-
-      <br /><br />
-
-      The values in this component are entered from the
-      information displayed on the source page/indicator
-      tables. No data is extracted from the site's JavaScript,
-      source code, or API.
-
-    </footer>
-
-  </main>
-
-
-  <script>
-
-    /* ============================================================
-       DATA
-
-       These are the displayed values used by the component.
-
-       null = the source displays no value ("---").
-       We do NOT estimate or interpolate missing observations.
-       ============================================================ */
-
-    const SDG6_DATA = {
-
-      sanitation: {
-
-        title:
-          "6.2.1a — Safely managed sanitation",
-
-        subtitle:
-          "Philippines · 2024",
-
-        unit:
-          "%",
-
-        value:
-          62.17,
-
-        points: [
-          {
-            label: "Safely managed",
-            value: 62.17
-          },
-          {
-            label: "Basic",
-            value: 87
-          },
-          {
-            label: "Limited",
-            value: 9.78
-          },
-          {
-            label: "Unimproved",
-            value: 2.44
-          },
-          {
-            label: "Open defecation",
-            value: 2.18
-          }
-        ],
-
-        detailTitle:
-          "Sanitation service levels",
-
-        explanation:
-          "The displayed indicator table reports 62.17% " +
-          "for safely managed sanitation. The same table " +
-          "displays 87% for basic service, alongside limited, " +
-          "unimproved and open-defecation components.",
-
-        note:
-          "The Philippines country snapshot rounds the " +
-          "headline figure to 62%.",
-
-        context:
-          "Safely managed sanitation represents the highest " +
-          "service level in the sanitation service ladder. " +
-          "The visualization shows the displayed service-level " +
-          "values without filling in missing data."
-
-      },
-
-
-      hygiene: {
-
-        title:
-          "6.2.1b — Handwashing facility",
-
-        subtitle:
-          "Philippines · 2024",
-
-        unit:
-          "%",
-
-        value:
-          99,
-
-        points: [
-          {
-            label: "Soap + water facility",
-            value: 99
-          },
-          {
-            label: "Limited",
-            value: 11.61
-          },
-          {
-            label: "No facility",
-            value: 6.64
-          }
-        ],
-
-        detailTitle:
-          "Handwashing service levels",
-
-        explanation:
-          "The displayed Philippines data report 99% " +
-          "for the population with a handwashing facility " +
-          "with soap and water available at home.",
-
-        note:
-          "Headline value displayed by the Philippines " +
-          "country snapshot: 99%.",
-
-        context:
-          "This indicator concerns the availability of a " +
-          "handwashing facility with soap and water at home."
-
-      },
-
-
-      wastewater: {
-
-        title:
-          "Domestic wastewater flow generated",
-
-        subtitle:
-          "Philippines · 2024",
-
-        unit:
-          "%",
-
-        value:
-          68,
-
-        points: [
-          {
-            label: "Sewers — generated",
-            value: 6.6
-          },
-          {
-            label: "Septic tanks — generated",
-            value: 85
-          },
-          {
-            label: "Other facilities — generated",
-            value: 8.5
-          },
-          {
-            label: "Safely treated",
-            value: 68
-          }
-        ],
-
-        detailTitle:
-          "Domestic wastewater",
-
-        explanation:
-          "The displayed page reports 68% of domestic " +
-          "wastewater as safely treated. It also displays " +
-          "6.6% generated through sewers, 85% through septic " +
-          "tanks and 8.5% through other sanitation facilities.",
-
-        note:
-          "The generation percentages describe the displayed " +
-          "sources of domestic wastewater; 68% is the displayed " +
-          "safely-treated figure.",
-
-        context:
-          "This view separates the displayed wastewater " +
-          "generation sources from the overall safely-treated " +
-          "headline value."
-
-      },
-
-
-      waterQuality: {
-
-        title:
-          "6.3.2 — Ambient water quality",
-
-        subtitle:
-          "Philippines · displayed observation",
-
-        unit:
-          "%",
-
-        value:
-          null,
-
-        points: [
-          {
-            label: "Good ambient water quality",
-            value: null
-          }
-        ],
-
-        detailTitle:
-          "Ambient water quality",
-
-        explanation:
-          "The Philippines country page displays \"---\" " +
-          "for this indicator.",
-
-        note:
-          "No value is plotted because the source displays " +
-          "the observation as unavailable.",
-
-        context:
-          "The component deliberately preserves the unavailable " +
-          "state rather than estimating or substituting a value."
-
-      },
-
-
-      waterStress: {
-
-        title:
-          "6.4.2 — Level of water stress",
-
-        subtitle:
-          "Philippines · 2023",
-
-        unit:
-          "%",
-
-        value:
-          28,
-
-        points: [
-          {
-            label: "Water stress",
-            value: 28
-          }
-        ],
-
-        detailTitle:
-          "Water stress",
-
-        explanation:
-          "The displayed Philippines country snapshot " +
-          "reports 28% for the level of water stress.",
-
-        note:
-          "Latest displayed observation: 2023.",
-
-        context:
-          "The indicator expresses freshwater withdrawals " +
-          "as a proportion of available freshwater resources " +
-          "after accounting for environmental flow requirements."
-
-      },
-
-
-      participationProcedures: {
-
-        title:
-          "6.b.1 — Participation procedures",
-
-        subtitle:
-          "Philippines · 2024",
-
-        unit:
-          "score",
-
-        value:
-          10,
-
-        points: [
-          {
-            label: "Urban drinking water",
-            value: 10
-          },
-          {
-            label: "Rural drinking water",
-            value: 10
-          },
-          {
-            label: "Urban sanitation",
-            value: 10
-          },
-          {
-            label: "Rural sanitation",
-            value: 10
-          },
-          {
-            label: "Hygiene promotion",
-            value: 10
-          },
-          {
-            label: "Water resources planning",
-            value: 10
-          }
-        ],
-
-        detailTitle:
-          "Participation procedures by sub-sector",
-
-        explanation:
-          "The displayed 6.b.1 table reports a score of 10 " +
-          "for all six sub-sectors.",
-
-        note:
-          "The displayed score of 10 represents clearly " +
-          "defined procedures.",
-
-        context:
-          "This part of 6.b.1 concerns procedures in law " +
-          "or policy for users and communities to participate " +
-          "in water and sanitation management."
-
-      },
-
-
-      participationLevel: {
-
-        title:
-          "6.b.1 — Level of community participation",
-
-        subtitle:
-          "Philippines · 2024",
-
-        unit:
-          "score",
-
-        value:
-          null,
-
-        points: [
-          {
-            label: "Urban drinking water",
-            value: 1
-          },
-          {
-            label: "Rural drinking water",
-            value: 1
-          },
-          {
-            label: "Urban sanitation",
-            value: 3
-          },
-          {
-            label: "Rural sanitation",
-            value: 3
-          },
-          {
-            label: "Hygiene promotion",
-            value: 3
-          },
-          {
-            label: "Water resources planning",
-            value: 2
-          }
-        ],
-
-        detailTitle:
-          "Participation level by sub-sector",
-
-        explanation:
-          "The displayed 6.b.1 table reports participation " +
-          "scores of 1, 1, 3, 3, 3 and 2 across the six " +
-          "sub-sectors.",
-
-        note:
-          "Displayed scale: 3 = high, 2 = moderate, 1 = low.",
-
-        context:
-          "This measure describes the level of participation " +
-          "by users and communities in water and sanitation " +
-          "management."
-
-      }
-
-    };
-
-
-    /* ============================================================
-       DOM ELEMENTS
-       ============================================================ */
-
-    const indicatorSelect =
-      document.getElementById("indicatorSelect");
-
-    const resetButton =
-      document.getElementById("resetButton");
-
-    const chart =
-      document.getElementById("chart");
-
-    const chartTitle =
-      document.getElementById("chartTitle");
-
-    const chartSubtitle =
-      document.getElementById("chartSubtitle");
-
-    const chartUnit =
-      document.getElementById("chartUnit");
-
-    const tooltip =
-      document.getElementById("tooltip");
-
-    const bigNumber =
-      document.getElementById("bigNumber");
-
-    const explanationTitle =
-      document.getElementById("explanationTitle");
-
-    const explanation =
-      document.getElementById("explanation");
-
-    const note =
-      document.getElementById("note");
-
-    const detailTitle =
-      document.getElementById("detailTitle");
-
-    const detailSubtitle =
-      document.getElementById("detailSubtitle");
-
-    const detailList =
-      document.getElementById("detailList");
-
-    const context =
-      document.getElementById("context");
-
-    const statusMessage =
-      document.getElementById("statusMessage");
-
-
-    /* ============================================================
-       HELPERS
-       ============================================================ */
-
-    const SVG_NS =
-      "http://www.w3.org/2000/svg";
-
-
-    function createSVGElement(
-      tag,
-      attributes = {}
-    ) {
-
-      const element =
-        document.createElementNS(
-          SVG_NS,
-          tag
-        );
-
-      Object.entries(attributes).forEach(
-        ([key, value]) => {
-          element.setAttribute(
-            key,
-            value
-          );
-        }
-      );
-
-      return element;
+    </div>
+  </div>
+ 
+  <footer>
+    Source: Philippine Statistics Authority, 2024 Annual Poverty Indicators Survey (preliminary results, released June 2025) and 2022 APIS; regional figures are those PSA highlighted by name in its national and regional releases. Where a region's figure for a given indicator wasn't separately published, this widget says so rather than estimating one. Map geography is schematic, not a precise administrative boundary map.
+  </footer>
+</div>
+ 
+<script>
+const METRICS = {
+  safelyManaged: { label: "Safely managed drinking water", unit:"%", domain:[10,90] },
+  basicWater:    { label: "Basic drinking water service", unit:"%", domain:[10,80] },
+  atLeastBasicWater: { label: "At least basic water access", unit:"%", domain:[85,100] },
+  basicSanitation: { label: "Basic sanitation service", unit:"%", domain:[50,95] },
+  openDefecation: { label: "Practicing open defecation", unit:"%", domain:[0,10], invert:true },
+  handwashing:   { label: "Basic handwashing facility", unit:"%", domain:[80,100] },
+};
+ 
+// x,y are schematic coordinates on the 560x780 viewBox — approximate relative
+// position within the archipelago, not precise administrative boundaries.
+const REGIONS = [
+  { id:"car", name:"CAR", full:"Cordillera Administrative Region", x:250, y:75,
+    m:{ basicSanitation:{v:90.7,y:2024}, handwashing:{v:98.4,y:2024} } },
+  { id:"r1", name:"Region I", full:"Ilocos Region", x:225, y:95,
+    m:{ atLeastBasicWater:{v:97.9,y:2024} } },
+  { id:"r2", name:"Region II", full:"Cagayan Valley", x:315, y:80,
+    m:{ safelyManaged:{v:27.6,y:2024}, basicWater:{v:70.9,y:2024}, atLeastBasicWater:{v:98.5,y:2024} } },
+  { id:"r3", name:"Region III", full:"Central Luzon", x:290, y:175,
+    m:{ safelyManaged:{v:67.0,y:2024}, basicWater:{v:32.4,y:2024}, atLeastBasicWater:{v:99.4,y:2024}, basicSanitation:{v:94.3,y:2024}, handwashing:{v:97.8,y:2024} } },
+  { id:"ncr", name:"NCR", full:"National Capital Region", x:295, y:220,
+    m:{ safelyManaged:{v:85.5,y:2024}, basicWater:{v:14.1,y:2024}, atLeastBasicWater:{v:99.6,y:2024} } },
+  { id:"r4a", name:"Region IV-A", full:"CALABARZON", x:280, y:255,
+    m:{ safelyManaged:{v:73.1,y:2024}, basicWater:{v:25.5,y:2024}, atLeastBasicWater:{v:98.6,y:2024} } },
+  { id:"mimaropa", name:"MIMAROPA", full:"MIMAROPA Region", x:150, y:400,
+    m:{ basicSanitation:{v:83.5,y:2024}, openDefecation:{v:5.8,y:2024} } },
+  { id:"r5", name:"Region V", full:"Bicol Region", x:300, y:340,
+    m:{ safelyManaged:{v:25.8,y:2024}, basicWater:{v:68.3,y:2024}, atLeastBasicWater:{v:94.1,y:2024}, openDefecation:{v:9.0,y:2024} } },
+  { id:"r6", name:"Region VI", full:"Western Visayas", x:222, y:452,
+    m:{ openDefecation:{v:4.9,y:2024}, handwashing:{v:97.6,y:2024} } },
+  { id:"r7", name:"Region VII", full:"Central Visayas", x:288, y:470,
+    m:{ basicSanitation:{v:81.8,y:2024} } },
+  { id:"r8", name:"Region VIII", full:"Eastern Visayas", x:345, y:430,
+    m:{ handwashing:{v:91.5,y:2024} } },
+  { id:"r9", name:"Region IX", full:"Zamboanga Peninsula", x:195, y:560,
+    m:{ basicWater:{v:66.6,y:2024}, atLeastBasicWater:{v:97.7,y:2024} } },
+  { id:"r10", name:"Region X", full:"Northern Mindanao", x:290, y:545,
+    m:{ handwashing:{v:89.5,y:2024} } },
+  { id:"r11", name:"Region XI", full:"Davao Region", x:370, y:590,
+    m:{ basicSanitation:{v:80.6,y:2024}, handwashing:{v:95.1,y:2024} } },
+  { id:"r12", name:"Region XII", full:"SOCCSKSARGEN", x:300, y:650,
+    m:{ basicSanitation:{v:74.4,y:2024}, handwashing:{v:83.3,y:2024}, openDefecation:{v:2.1,y:2024} } },
+  { id:"caraga", name:"Caraga", full:"Caraga Region", x:390, y:570,
+    m:{ basicSanitation:{v:88.3,y:2024} } },
+  { id:"barmm", name:"BARMM", full:"Bangsamoro Autonomous Region in Muslim Mindanao", x:210, y:610,
+    m:{ safelyManaged:{v:14.8,y:2024}, basicWater:{v:73.4,y:2024}, atLeastBasicWater:{v:88.2,y:2024}, basicSanitation:{v:57.1,y:2024}, openDefecation:{v:9.4,y:2024}, handwashing:{v:82.4,y:2024} } },
+];
+ 
+let currentMetric = "basicSanitation";
+let selectedId = null;
+ 
+function colorFor(metricKey, value){
+  if(value === undefined || value === null) return null;
+  const {domain, invert} = METRICS[metricKey];
+  let t = (value - domain[0]) / (domain[1] - domain[0]);
+  t = Math.max(0, Math.min(1, t));
+  if(invert) t = 1 - t;
+  // coral -> gold -> teal
+  const stops = [
+    {t:0, c:[255,107,91]},
+    {t:0.5, c:[242,184,78]},
+    {t:1, c:[55,201,189]},
+  ];
+  let a = stops[0], b = stops[1];
+  if(t > 0.5){ a = stops[1]; b = stops[2]; }
+  const localT = a.t === 0 ? t/0.5 : (t-0.5)/0.5;
+  const c = a.c.map((v,i)=> Math.round(v + (b.c[i]-v)*localT));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+ 
+function buildToggles(){
+  const el = document.getElementById("toggles");
+  Object.entries(METRICS).forEach(([key, def])=>{
+    const btn = document.createElement("button");
+    btn.textContent = def.label;
+    btn.dataset.key = key;
+    if(key === currentMetric) btn.classList.add("active");
+    btn.addEventListener("click", ()=>{
+      currentMetric = key;
+      document.querySelectorAll("#toggles button").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      drawDots();
+    });
+    el.appendChild(btn);
+  });
+}
+ 
+function drawDots(){
+  const dotsG = document.getElementById("dots");
+  const labelsG = document.getElementById("labels");
+  dotsG.innerHTML = "";
+  labelsG.innerHTML = "";
+ 
+  REGIONS.forEach(r=>{
+    const metric = r.m[currentMetric];
+    const fill = metric ? colorFor(currentMetric, metric.v) : "none";
+ 
+    const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("cx", r.x);
+    c.setAttribute("cy", r.y);
+    c.setAttribute("r", 9);
+    c.setAttribute("fill", fill || "rgba(0,0,0,0)");
+    c.setAttribute("stroke", metric ? "rgba(255,255,255,.55)" : "#4a6a6d");
+    c.setAttribute("stroke-width", metric ? 1.5 : 1.5);
+    if(!metric) c.setAttribute("stroke-dasharray","3,2");
+    c.classList.add("region-dot");
+    if(r.id === selectedId) c.classList.add("selected");
+    c.addEventListener("click", ()=> selectRegion(r.id));
+    const title = document.createElementNS("http://www.w3.org/2000/svg","title");
+    title.textContent = metric ? `${r.full}: ${metric.v}% (${metric.y})` : `${r.full}: not published for this indicator`;
+    c.appendChild(title);
+    dotsG.appendChild(c);
+ 
+    const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+    t.setAttribute("x", r.x);
+    t.setAttribute("y", r.y - 13);
+    t.setAttribute("text-anchor","middle");
+    t.classList.add("region-label");
+    t.textContent = r.name;
+    labelsG.appendChild(t);
+  });
+}
+ 
+function selectRegion(id){
+  selectedId = id;
+  drawDots();
+  renderPanel(REGIONS.find(r=>r.id===id));
+}
+ 
+function renderPanel(r){
+  const panel = document.getElementById("panel");
+  let html = `<p class="eyebrow">${r.name}</p><h3>${r.full}</h3><p class="island-name">Tap another region to compare, or switch the map's colour indicator above.</p>`;
+ 
+  Object.entries(METRICS).forEach(([key, def])=>{
+    const m = r.m[key];
+    html += `<div class="metric"><div class="row"><span class="name">${def.label}</span>`;
+    if(m){
+      html += `<span class="val">${m.v}%<span class="yr">${m.y}</span></span></div>
+        <div class="track"><div class="fill" style="width:${Math.min(100,m.v)}%; background:${colorFor(key,m.v)}"></div></div>`;
+    } else {
+      html += `</div><div class="empty">Not individually published for this region in the latest release</div>`;
     }
+    html += `</div>`;
+  });
+ 
+  panel.innerHTML = html;
+}
+ 
+buildToggles();
+drawDots();
+</script>
 
-
-    function formatValue(
-      value,
-      unit
-    ) {
-
-      if (
-        value === null ||
-        value === undefined
-      ) {
-        return "—";
-      }
-
-      if (unit === "%") {
-
-        return (
-          Number(value)
-            .toFixed(2)
-            .replace(/\.00$/, "")
-            .replace(/(\.\d)0$/, "$1")
-          + "%"
-        );
-
-      }
-
-      return String(value);
-    }
-
-
-    /* ============================================================
-       CHART RENDERER
-       ============================================================ */
-
-    function renderChart(data) {
-
-      chart.innerHTML = "";
-
-      const width = 760;
-      const height = 330;
-
-      const margin = {
-        top: 25,
-        right: 30,
-        bottom: 80,
-        left: 50
-      };
-
-      const plotWidth =
-        width -
-        margin.left -
-        margin.right;
-
-      const plotHeight =
-        height -
-        margin.top -
-        margin.bottom;
-
-
-      /*
-       * Percentages use 0–100.
-       * Participation scores use 0–10.
-       */
-
-      const maxValue =
-        data.unit === "%"
-          ? 100
-          : 10;
-
-
-      function x(index) {
-
-        if (data.points.length === 1) {
-          return (
-            margin.left +
-            plotWidth / 2
-          );
-        }
-
-        return (
-          margin.left +
-          (
-            index /
-            (data.points.length - 1)
-          ) *
-          plotWidth
-        );
-      }
-
-
-      function y(value) {
-
-        return (
-          margin.top +
-          plotHeight -
-          (
-            value / maxValue
-          ) *
-          plotHeight
-        );
-
-      }
-
-
-      /* ================================
-         Gradient
-         ================================ */
-
-      const defs =
-        createSVGElement("defs");
-
-      const gradient =
-        createSVGElement(
-          "linearGradient",
-          {
-            id: "chartGradient",
-            x1: "0",
-            x2: "0",
-            y1: "0",
-            y2: "1"
-          }
-        );
-
-      gradient.appendChild(
-        createSVGElement(
-          "stop",
-          {
-            offset: "0%",
-            "stop-color": "#087f8c"
-          }
-        )
-      );
-
-      gradient.appendChild(
-        createSVGElement(
-          "stop",
-          {
-            offset: "100%",
-            "stop-color": "#087f8c",
-            "stop-opacity": "0"
-          }
-        )
-      );
-
-      defs.appendChild(gradient);
-      chart.appendChild(defs);
-
-
-      /* ================================
-         Y-axis grid
-         ================================ */
-
-      const ticks = 5;
-
-      for (
-        let i = 0;
-        i <= ticks;
-        i++
-      ) {
-
-        const value =
-          maxValue -
-          (
-            i *
-            maxValue /
-            ticks
-          );
-
-        const yPosition =
-          y(value);
-
-
-        chart.appendChild(
-          createSVGElement(
-            "line",
-            {
-              x1: margin.left,
-              x2: width - margin.right,
-              y1: yPosition,
-              y2: yPosition,
-              class: "grid-line"
-            }
-          )
-        );
-
-
-        const label =
-          createSVGElement(
-            "text",
-            {
-              x:
-                margin.left - 10,
-
-              y:
-                yPosition + 4,
-
-              "text-anchor":
-                "end",
-
-              class:
-                "axis-label"
-            }
-          );
-
-
-        label.textContent =
-          data.unit === "%"
-            ? `${value}%`
-            : value;
-
-        chart.appendChild(label);
-
-      }
-
-
-      /* ================================
-         Numeric observations
-         ================================ */
-
-      const numeric =
-        data.points
-          .map(
-            (point, index) => ({
-              point,
-              index
-            })
-          )
-          .filter(
-            item =>
-              Number.isFinite(
-                item.point.value
-              )
-          );
-
-
-      /*
-       * Draw line when there are multiple
-       * numeric observations.
-       */
-
-      if (numeric.length > 1) {
-
-        let path = "";
-
-        numeric.forEach(
-          (item, index) => {
-
-            const command =
-              index === 0
-                ? "M"
-                : "L";
-
-            path +=
-              `${command} ` +
-              `${x(item.index)} ` +
-              `${y(item.point.value)} `;
-
-          }
-        );
-
-
-        /* Area underneath the line */
-
-        const first =
-          numeric[0];
-
-        const last =
-          numeric[numeric.length - 1];
-
-
-        const areaPath =
-          path +
-          `L ${x(last.index)} ${margin.top + plotHeight} ` +
-          `L ${x(first.index)} ${margin.top + plotHeight} Z`;
-
-
-        chart.appendChild(
-          createSVGElement(
-            "path",
-            {
-              d: areaPath,
-              class: "chart-area"
-            }
-          )
-        );
-
-
-        chart.appendChild(
-          createSVGElement(
-            "path",
-            {
-              d: path,
-              class: "chart-line"
-            }
-          )
-        );
-
-      }
-
-
-      /* ================================
-         Data points
-         ================================ */
-
-      data.points.forEach(
-        (point, index) => {
-
-          const xPosition =
-            x(index);
-
-
-          if (
-            Number.isFinite(
-              point.value
-            )
-          ) {
-
-            const yPosition =
-              y(point.value);
-
-
-            const circle =
-              createSVGElement(
-                "circle",
-                {
-                  cx: xPosition,
-                  cy: yPosition,
-                  r: 6,
-                  class: "sdg6-point",
-                  tabindex: "0",
-                  "aria-label":
-                    `${point.label}: ` +
-                    formatValue(
-                      point.value,
-                      data.unit
-                    )
-                }
-              );
-
-
-            function showTooltip(
-              event
-            ) {
-
-              tooltip.innerHTML =
-                `<strong>${point.label}</strong>` +
-                formatValue(
-                  point.value,
-                  data.unit
-                );
-
-
-              const rootRect =
-                chart.parentElement
-                  .getBoundingClientRect();
-
-
-              tooltip.style.left =
-                `${event.clientX -
-                  rootRect.left +
-                  12}px`;
-
-
-              tooltip.style.top =
-                `${event.clientY -
-                  rootRect.top -
-                  20}px`;
-
-
-              tooltip.style.display =
-                "block";
-
-            }
-
-
-            circle.addEventListener(
-              "mouseenter",
-              showTooltip
-            );
-
-
-            circle.addEventListener(
-              "mousemove",
-              showTooltip
-            );
-
-
-            circle.addEventListener(
-              "focus",
-              event => {
-
-                const rect =
-                  event.currentTarget
-                    .getBoundingClientRect();
-
-                showTooltip({
-                  clientX:
-                    rect.left +
-                    rect.width / 2,
-
-                  clientY:
-                    rect.top
-                });
-
-              }
-            );
-
-
-            circle.addEventListener(
-              "mouseleave",
-              () => {
-                tooltip.style.display =
-                  "none";
-              }
-            );
-
-
-            circle.addEventListener(
-              "blur",
-              () => {
-                tooltip.style.display =
-                  "none";
-              }
-            );
-
-
-            chart.appendChild(circle);
-
-          } else {
-
-            /*
-             * Missing data is represented
-             * visually, rather than fabricated.
-             */
-
-            chart.appendChild(
-              createSVGElement(
-                "circle",
-                {
-                  cx: xPosition,
-                  cy:
-                    margin.top +
-                    plotHeight / 2,
-
-                  r: 6,
-
-                  class:
-                    "sdg6-point missing"
-                }
-              )
-            );
-
-          }
-
-
-          /* ================================
-             X-axis labels
-             ================================ */
-
-          const text =
-            createSVGElement(
-              "text",
-              {
-                x: xPosition,
-                y:
-                  margin.top +
-                  plotHeight +
-                  25,
-
-                "text-anchor":
-                  "middle",
-
-                class:
-                  "axis-label"
-              }
-            );
-
-
-          /*
-           * Wrap long labels.
-           */
-
-          const words =
-            point.label.split(" ");
-
-          let line = "";
-          let lineNumber = 0;
-
-          words.forEach(word => {
-
-            const test =
-              `${line} ${word}`.trim();
-
-            if (
-              test.length > 16 &&
-              line
-            ) {
-
-              const tspan =
-                createSVGElement(
-                  "tspan",
-                  {
-                    x: xPosition,
-                    dy:
-                      lineNumber === 0
-                        ? 0
-                        : 14
-                  }
-                );
-
-              tspan.textContent =
-                line;
-
-              text.appendChild(tspan);
-
-              line = word;
-              lineNumber++;
-
-            } else {
-
-              line = test;
-
-            }
-
-          });
-
-
-          const finalTspan =
-            createSVGElement(
-              "tspan",
-              {
-                x: xPosition,
-                dy:
-                  lineNumber === 0
-                    ? 0
-                    : 14
-              }
-            );
-
-          finalTspan.textContent =
-            line;
-
-          text.appendChild(
-            finalTspan
-          );
-
-          chart.appendChild(text);
-
-        }
-      );
-
-
-      /* ================================
-         Empty-state message
-         ================================ */
-
-      if (numeric.length === 0) {
-
-        const empty =
-          createSVGElement(
-            "text",
-            {
-              x: width / 2,
-              y: height / 2,
-              "text-anchor": "middle",
-              class: "axis-label"
-            }
-          );
-
-        empty.setAttribute(
-          "style",
-          "font-size:14px;font-weight:800;"
-        );
-
-        empty.textContent =
-          "Data not available — source displays “---”";
-
-        chart.appendChild(empty);
-
-      }
-
-    }
-
-
-    /* ============================================================
-       DETAIL CARD
-       ============================================================ */
-
-    function renderDetails(data) {
-
-      detailList.innerHTML = "";
-
-
-      data.points.forEach(
-        point => {
-
-          const item =
-            document.createElement("li");
-
-          item.className =
-            "sdg6-detail-item";
-
-
-          const top =
-            document.createElement("div");
-
-          top.className =
-            "sdg6-detail-top";
-
-
-          const label =
-            document.createElement("span");
-
-          label.className =
-            "sdg6-detail-label";
-
-          label.textContent =
-            point.label;
-
-
-          const value =
-            document.createElement("strong");
-
-          value.className =
-            "sdg6-detail-value";
-
-          value.textContent =
-            formatValue(
-              point.value,
-              data.unit
-            );
-
-
-          top.appendChild(label);
-          top.appendChild(value);
-
-
-          item.appendChild(top);
-
-
-          /*
-           * Only create a meter if a
-           * numeric value exists.
-           */
-
-          if (
-            Number.isFinite(
-              point.value
-            )
-          ) {
-
-            const meter =
-              document.createElement("div");
-
-            meter.className =
-              "sdg6-meter";
-
-
-            const bar =
-              document.createElement("span");
-
-
-            const percentage =
-              data.unit === "%"
-                ? Math.min(
-                    100,
-                    Math.max(
-                      0,
-                      point.value
-                    )
-                  )
-                : Math.min(
-                    100,
-                    Math.max(
-                      0,
-                      point.value * 10
-                    )
-                  );
-
-
-            bar.style.width =
-              `${percentage}%`;
-
-
-            meter.appendChild(bar);
-            item.appendChild(meter);
-
-          }
-
-
-          detailList.appendChild(item);
-
-        }
-      );
-
-    }
-
-
-    /* ============================================================
-       UPDATE COMPONENT
-       ============================================================ */
-
-    function updateDashboard(
-      indicator
-    ) {
-
-      /*
-       * Validate the requested indicator
-       * before accessing the data object.
-       */
-
-      if (
-        !Object.prototype.hasOwnProperty.call(
-          SDG6_DATA,
-          indicator
-        )
-      ) {
-
-        statusMessage.textContent =
-          "Invalid indicator selected.";
-
-        return;
-
-      }
-
-
-      statusMessage.textContent = "";
-
-
-      const data =
-        SDG6_DATA[indicator];
-
-
-      chartTitle.textContent =
-        data.title;
-
-      chartSubtitle.textContent =
-        data.subtitle;
-
-      chartUnit.textContent =
-        data.unit;
-
-
-      explanationTitle.textContent =
-        data.title;
-
-
-      bigNumber.textContent =
-        formatValue(
-          data.value,
-          data.unit
-        );
-
-
-      explanation.textContent =
-        data.explanation;
-
-
-      note.textContent =
-        data.note;
-
-
-      detailTitle.textContent =
-        data.detailTitle;
-
-
-      detailSubtitle.textContent =
-        data.subtitle;
-
-
-      context.textContent =
-        data.context;
-
-
-      renderChart(data);
-
-      renderDetails(data);
-
-    }
-
-
-    /* ============================================================
-       EVENT HANDLERS
-       ============================================================ */
-
-    indicatorSelect.addEventListener(
-      "change",
-      event => {
-
-        const selected =
-          event.target.value;
-
-        updateDashboard(selected);
-
-      }
-    );
-
-
-    resetButton.addEventListener(
-      "click",
-      () => {
-
-        indicatorSelect.value =
-          "sanitation";
-
-        updateDashboard(
-          "sanitation"
-        );
-
-        indicatorSelect.focus();
-
-      }
-    );
-
-
-    /*
-     * Hide tooltip if the user clicks
-     * somewhere outside the chart.
-     */
-
-    document.addEventListener(
-      "click",
-      event => {
-
-        if (
-          !event.target.closest(
-            ".sdg6-chart-container"
-          )
-        ) {
-
-          tooltip.style.display =
-            "none";
-
-        }
-
-      }
-    );
-
-
-    /* ============================================================
-       INITIALIZE
-       ============================================================ */
-
-    updateDashboard(
-      "sanitation"
-    );
-
-  </script>
         <hr>
 
         <!--CTA: Call to Action-->
