@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Clean Water and Sanitation Situation in the Philippines per region.
+ Donate and Help Organizatins in Promoting Awareness and Solutions for these situations.">
+<title>Clean Water and Sanitation in the Philippines</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TL55SZNLC3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TL55SZNLC3');
+</script>
+
+<style>
+/* ============================================================
+   1. DESIGN TOKENS — one source of truth for fonts + colours
+   ============================================================ */
+:root{
+  /* type families */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+
+  /* type scale — every size on the page comes from here */
+  --fs-display: clamp(30px, 5.2vw, 46px);  /* hero h1                     */
+  --fs-h1:      clamp(25px, 3.6vw, 35px);  /* section titles              */
+  --fs-h2:      clamp(20px, 2.6vw, 25px);  /* sub-heads, pull quote       */
+  --fs-h3:      clamp(17px, 2vw, 20px);    /* card heads, step titles     */
+  --fs-num-lg:  clamp(28px, 4.2vw, 34px);  /* headline stat numbers       */
+  --fs-num:     clamp(24px, 3vw, 28px);    /* card stat numbers           */
+  --fs-lead:    clamp(16px, 1.6vw, 19px);  /* intro paragraphs            */
+  --fs-body:    16px;                      /* default prose               */
+  --fs-label:   15px;                      /* stat labels, metric names   */
+  --fs-small:   13px;                      /* sources, captions, legend   */
+  --fs-eyebrow: 13px;                      /* mono kickers                */
+
+  /* line heights */
+  --lh-tight: 1.12;
+  --lh-snug:  1.35;
+  --lh-body:  1.6;
+
+  /* colours */
+  --ink:      #0A1F26;   /* page background          */
+  --ink-2:    #0F2A32;   /* raised panels / cards    */
+  --ink-3:    #0a3038;   /* map landmass             */
+  --cream:    #F0EDE3;   /* headings                 */
+  --mist:     #AFC0BE;   /* body copy                */
+  --muted:    rgba(175,192,190,0.55); /* sources     */
+  --line:     rgba(175,192,190,0.35); /* borders     */
+  --gold:     #E2A33D;   /* numbers / emphasis       */
+  --aqua:     #7FD8CE;   /* eyebrows / accents       */
+  --clear:    #3FA9B5;   /* progress fills           */
+  --coral:    #FF6B5B;   /* low end of data scale    */
+
+  /* rhythm */
+  --gutter: clamp(18px, 5vw, 50px);
+  --stack:  clamp(40px, 7vw, 90px);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*{margin:0; padding:0; box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(63,169,181,0.25), transparent 55%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink) 85%, var(--ink-2) 100%);
+  color:var(--mist);
+  font-family:var(--font-body);
+  font-size:var(--fs-body);
+  line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;
+  padding-top:56px; /* clears the fixed top bar */
+}
+
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  color:var(--cream);
+  line-height:var(--lh-tight);
+}
+h1{font-size:var(--fs-h1);}
+h2{font-size:var(--fs-h2);}
+h3{font-size:var(--fs-h3);}
+p{font-family:var(--font-body); font-size:var(--fs-body); line-height:var(--lh-body);}
+
+hr{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:var(--stack) var(--gutter);
+}
+
+/* shared utility classes — the whole page uses these, nothing sets its own size */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:var(--fs-eyebrow);
+  font-weight:500;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--aqua);
+  margin-bottom:10px;
+}
+.lede{
+  font-size:var(--fs-lead);
+  line-height:var(--lh-body);
+  color:var(--mist);
+  max-width:62ch;
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:var(--fs-num);
+  font-weight:600;
+  line-height:var(--lh-tight);
+  color:var(--gold);
+}
+.stat-label{
+  font-family:var(--font-body);
+  font-size:var(--fs-label);
+  line-height:var(--lh-snug);
+  color:var(--mist);
+  margin-top:10px;
+}
+.source{
+  font-family:var(--font-mono);
+  font-size:var(--fs-small);
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  margin-top:10px;
+}
+
+.section{
+  padding:0 var(--gutter);
+  margin:var(--stack) auto;
+  max-width:1180px;
+  text-align:left;
+}
+
+/* ============================================================
+   3. TOP BAR
+   ============================================================ */
+.top-bar{
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  display:flex; align-items:center;
+  padding:0 var(--gutter);
+  min-height:56px;
+  background:linear-gradient(180deg, rgba(15,42,50,0.95) 0%, rgba(10,31,38,0.92) 100%);
+  border-bottom:1px solid rgba(175,192,190,0.2);
+  backdrop-filter:blur(6px);
+}
+.top-bar .sdg6{
+  font-family:var(--font-mono);
+  font-size:var(--fs-eyebrow);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--mist);
+}
+.top-bar .sdg6 span{color:var(--aqua);}
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:clamp(24px,4vw,48px);
+  align-items:center;
+}
+.hero h1{
+  font-size:var(--fs-display);
+  font-weight:600;
+  margin-bottom:18px;
+}
+.hero h1 em{color:var(--aqua); font-style:italic;}
+.hero img{width:100%; max-width:560px; height:auto; display:block; margin:0 auto;}
+
+.headline-stat{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:clamp(20px,3vw,35px);
+  margin-top:var(--stack);
+  padding-top:clamp(24px,4vw,40px);
+  border-top:1px solid var(--line);
+}
+.headline-stat .stat-num{font-size:var(--fs-num-lg);}
+
+/* ============================================================
+   5. STAT CARDS
+   ============================================================ */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  margin-top:clamp(28px,4vw,48px);
+}
+.card-grid .card{background:var(--ink); padding:clamp(18px,2.4vw,26px);}
+
+.card-single{
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--ink-2);
+  padding:clamp(20px,3vw,30px);
+  margin-top:clamp(28px,4vw,48px);
+}
+.card-single .stat-num{font-size:var(--fs-num-lg);}
+
+/* ============================================================
+   6. PROGRESS BARS
+   ============================================================ */
+.progress img{width:100%; max-width:560px; height:auto; display:block; margin:0 auto clamp(24px,4vw,40px);}
+.prog-row{margin-top:clamp(20px,3vw,30px);}
+.prog-head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:14px; margin-bottom:8px; flex-wrap:wrap;
+}
+.prog-name{font-size:var(--fs-label); color:var(--mist);}
+.prog-value{font-family:var(--font-display); font-size:var(--fs-h3); color:var(--gold);}
+.prog-track{height:8px; background:rgba(240,237,227,0.1); border-radius:4px; overflow:hidden;}
+.prog-fill{height:100%; width:var(--target); background:var(--clear); border-radius:4px;}
+
+/* ============================================================
+   7. PULL QUOTE
+   ============================================================ */
+.pull-quote{
+  font-family:var(--font-display);
+  font-size:var(--fs-h2);
+  font-style:italic;
+  font-weight:400;
+  line-height:1.45;
+  color:var(--cream);
+  max-width:60ch;
+}
+.pull-quote-attr{
+  font-family:var(--font-mono);
+  font-size:var(--fs-small);
+  color:var(--muted);
+  margin-top:16px;
+  font-style:normal;
+}
+
+/* ============================================================
+   8. STEPS + SINCE CARDS
+   ============================================================ */
+.step{
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--ink-2);
+  padding:clamp(20px,3vw,30px);
+  margin-top:clamp(18px,2.4vw,24px);
+}
+.step h3{margin-bottom:10px; color:var(--gold); font-weight:600;}
+.step p{color:var(--mist); font-size:var(--fs-body);}
+
+.since{
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--ink-2);
+  padding:clamp(20px,3vw,30px);
+  margin-top:clamp(18px,2.4vw,24px);
+}
+.since h3{margin-bottom:10px;}
+.since p{color:var(--mist);}
+
+/* ============================================================
+   9. BUTTONS
+   ============================================================ */
+.btn{
+  font-family:var(--font-body);
+  font-size:var(--fs-label);
+  font-weight:500;
+  color:var(--gold);
+  text-decoration:none;
+  display:inline-block;
+  margin:16px 10px 0 0;
+  padding:12px 24px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:var(--ink-2);
+  cursor:pointer;
+  transition:color .15s ease, border-color .15s ease;
+}
+.btn:hover{color:var(--aqua); border-color:var(--aqua);}
+.btn:focus-visible{outline:2px solid var(--aqua); outline-offset:2px;}
+
+/* ============================================================
+   10. WIDGET — refined explorer surface
+   ============================================================ */
+
+/* --- the framed instrument the whole widget sits in --- */
+.widget-shell{
+  margin-top:clamp(28px,4vw,44px);
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:
+    radial-gradient(120% 90% at 12% -10%, rgba(63,169,181,0.10), transparent 60%),
+    linear-gradient(180deg, rgba(15,42,50,0.85), rgba(10,31,38,0.95));
+  overflow:hidden;
+}
+
+/* --- strip of national figures across the top of the shell --- */
+.widget-stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:1px;
+  background:var(--line);
+  border-bottom:1px solid var(--line);
+}
+.widget-stats .stat{
+  background:rgba(10,31,38,0.72);
+  padding:clamp(16px,2vw,22px);
+}
+.widget-stats .stat .v{
+  font-family:var(--font-display);
+  font-size:clamp(22px,2.6vw,27px);
+  font-weight:600;
+  line-height:1.05;
+  color:var(--cream);
+}
+.widget-stats .stat .v i{font-style:normal; font-size:0.6em; color:var(--aqua); margin-left:2px;}
+.widget-stats .stat .k{
+  font-size:var(--fs-small);
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  margin-top:7px;
+}
+
+/* --- two-column body --- */
+.widget-board{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+  align-items:stretch;
+}
+.map-card{
+  padding:clamp(18px,2.4vw,26px);
+  border-right:1px solid var(--line);
+  min-width:0;
+}
+.detail-panel{
+  padding:clamp(18px,2.4vw,26px);
+  background:rgba(10,31,38,0.45);
+  min-width:0;
+}
+
+/* --- card head: title left, live indicator chip right --- */
+.map-head{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  gap:14px; flex-wrap:wrap; margin-bottom:6px;
+}
+.map-head h3{font-size:var(--fs-h3);}
+.now-showing{
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:5px 11px;
+  white-space:nowrap;
+}
+.now-showing::before{
+  content:"";
+  width:6px; height:6px; border-radius:50%;
+  background:var(--aqua);
+  box-shadow:0 0 0 3px rgba(127,216,206,0.18);
+}
+.map-card .sub{
+  font-size:var(--fs-small);
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  margin-bottom:18px;
+  max-width:54ch;
+}
+
+/* --- indicator toggles: segmented, tactile --- */
+.toggles{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:20px;}
+.toggles button{
+  font-family:var(--font-body);
+  font-size:var(--fs-small);
+  font-weight:500;
+  line-height:1;
+  background:rgba(240,237,227,0.03);
+  border:1px solid var(--line);
+  color:var(--mist);
+  padding:9px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.toggles button:hover{
+  border-color:var(--aqua);
+  color:var(--cream);
+  background:rgba(127,216,206,0.08);
+  transform:translateY(-1px);
+}
+.toggles button:active{transform:translateY(0);}
+.toggles button.active{
+  background:var(--aqua);
+  border-color:var(--aqua);
+  color:var(--ink);
+  font-weight:600;
+  box-shadow:0 0 0 3px rgba(127,216,206,0.15);
+}
+.toggles button:focus-visible{outline:2px solid var(--aqua); outline-offset:3px;}
+
+/* --- the map itself --- */
+.map-stage{
+  position:relative;
+  border:1px solid rgba(175,192,190,0.16);
+  border-radius:8px;
+  background:
+    linear-gradient(rgba(175,192,190,0.045) 1px, transparent 1px) 0 0 / 100% 34px,
+    linear-gradient(90deg, rgba(175,192,190,0.045) 1px, transparent 1px) 0 0 / 34px 100%,
+    radial-gradient(90% 70% at 50% 0%, rgba(63,169,181,0.07), transparent 70%);
+  padding:10px 6px 4px;
+}
+.map-stage::after{
+  content:"Click a region";
+  position:absolute; top:12px; right:12px;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border:1px dashed rgba(175,192,190,0.3);
+  border-radius:999px;
+  padding:4px 10px;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+.map-stage:has(.region-dot.selected)::after{opacity:0;}
+
+svg#map{width:100%; height:auto; display:block; max-height:58vh; overflow:visible;}
+.island{
+  fill:var(--ink-3);
+  stroke:rgba(127,216,206,0.28);
+  stroke-width:1.1;
+  stroke-linejoin:round;
+}
+
+/* dots: grow + glow on hover, ring when selected */
+.region-dot{
+  cursor:pointer;
+  transform-box:fill-box;
+  transform-origin:center;
+  transition:transform .18s cubic-bezier(.34,1.4,.64,1), stroke-width .18s ease, filter .18s ease;
+}
+.region-dot:hover{
+  transform:scale(1.35);
+  stroke-width:2.5;
+  filter:drop-shadow(0 0 7px rgba(127,216,206,0.55));
+}
+.region-dot:focus-visible{
+  outline:none;
+  transform:scale(1.35);
+  stroke:#fff; stroke-width:2.5;
+  filter:drop-shadow(0 0 7px rgba(127,216,206,0.7));
+}
+.region-dot.selected{
+  stroke:#ffffff;
+  stroke-width:3;
+  transform:scale(1.25);
+  filter:drop-shadow(0 0 9px rgba(255,255,255,0.45));
+}
+
+/* gentle invitation to click — stops once anything is selected */
+@keyframes dot-breathe{
+  0%,100%{transform:scale(1);   opacity:1;}
+  50%    {transform:scale(1.11); opacity:.88;}
+}
+#map:not(:has(.region-dot.selected)) .region-dot{
+  animation:dot-breathe 3.4s ease-in-out infinite;
+}
+#map:not(:has(.region-dot.selected)) .region-dot:nth-of-type(3n){animation-delay:-1.1s;}
+#map:not(:has(.region-dot.selected)) .region-dot:nth-of-type(3n+1){animation-delay:-2.2s;}
+#map:not(:has(.region-dot.selected)) .region-dot:hover{animation-play-state:paused;}
+
+.region-label{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:.03em;
+  fill:var(--muted);
+  pointer-events:none;
+}
+
+/* --- legend --- */
+.legend{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  margin-top:16px; padding-top:14px;
+  border-top:1px solid rgba(175,192,190,0.16);
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:.04em;
+  color:var(--muted);
+}
+.legend .bar{
+  height:7px; flex:1; min-width:90px; border-radius:999px;
+  background:linear-gradient(90deg, var(--coral), var(--gold), var(--aqua));
+}
+.legend .nodata{display:inline-flex; align-items:center; gap:6px; white-space:nowrap;}
+.legend .nodata i{
+  width:9px; height:9px; border-radius:50%;
+  background:transparent; border:1.5px dashed var(--muted);
+  display:inline-block;
+}
+
+/* --- detail panel --- */
+.detail-panel .eyebrow{margin-bottom:6px;}
+.detail-panel h3{font-size:var(--fs-h2); margin-bottom:8px; line-height:1.2;}
+.detail-panel .hint{
+  font-size:var(--fs-small);
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  margin-bottom:22px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(175,192,190,0.16);
+}
+
+/* each metric is its own quiet row that lifts on hover */
+.metric{
+  padding:12px 12px 13px;
+  margin:0 -12px;
+  border-radius:6px;
+  transition:background .18s ease;
+}
+.metric:hover{background:rgba(240,237,227,0.035);}
+.metric .row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:12px; margin-bottom:9px;
+}
+.metric .name{font-size:var(--fs-label); line-height:1.3; color:var(--mist);}
+.metric .val{
+  font-family:var(--font-display);
+  font-size:var(--fs-h3);
+  font-weight:600;
+  color:var(--cream);
+  white-space:nowrap;
+}
+.metric .val .yr{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:400;
+  color:var(--muted);
+  margin-left:7px;
+}
+.metric .track{
+  height:6px;
+  background:rgba(240,237,227,0.08);
+  border-radius:999px;
+  overflow:hidden;
+}
+.metric .fill{
+  height:100%;
+  border-radius:999px;
+  transform-origin:left center;
+  animation:fill-in .62s cubic-bezier(.22,.9,.3,1) both;
+}
+@keyframes fill-in{from{transform:scaleX(0);} to{transform:scaleX(1);}}
+.metric .empty{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  padding:2px 0 4px;
+  border-left:2px solid rgba(175,192,190,0.2);
+  padding-left:10px;
+}
+
+/* panel contents ease in on each new selection */
+.detail-panel > *{animation:panel-in .38s ease both;}
+.detail-panel > *:nth-child(2){animation-delay:.03s;}
+.detail-panel > *:nth-child(3){animation-delay:.06s;}
+.detail-panel > *:nth-child(n+4){animation-delay:.09s;}
+@keyframes panel-in{from{opacity:0; transform:translateY(7px);} to{opacity:1; transform:none;}}
+
+/* empty state */
+.placeholder{
+  display:flex; flex-direction:column; justify-content:center;
+  height:100%; min-height:340px;
+  text-align:left;
+}
+.placeholder .mark{
+  width:38px; height:38px; margin-bottom:18px;
+  border:1px dashed rgba(127,216,206,0.5);
+  border-radius:50%;
+  position:relative;
+}
+.placeholder .mark::after{
+  content:"";
+  position:absolute; inset:0; margin:auto;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--aqua);
+  box-shadow:0 0 0 6px rgba(127,216,206,0.12);
+}
+.placeholder h3{font-size:var(--fs-h2); margin-bottom:10px;}
+.placeholder p{font-size:var(--fs-label); color:var(--mist); max-width:34ch;}
+
+/* --- source note --- */
+.widget-source{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  line-height:var(--lh-snug);
+  color:var(--muted);
+  margin:0;
+  padding:clamp(14px,2vw,18px) clamp(18px,2.4vw,26px);
+  border-top:1px solid var(--line);
+  background:rgba(10,31,38,0.6);
+}
+
+/* ============================================================
+   11. PAGE FOOTER
+   ============================================================ */
+.page-footer{
+  padding:clamp(28px,4vw,40px) var(--gutter) clamp(36px,5vw,56px);
+  border-top:1px solid var(--line);
+  text-align:left;
+  max-width:1180px;
+  margin:var(--stack) auto 0;
+}
+.page-footer p{font-size:var(--fs-label); color:var(--mist);}
+.page-footer .copyright{
+  font-family:var(--font-mono);
+  font-size:var(--fs-small);
+  color:var(--muted);
+  margin-top:26px;
+}
+
+/* ============================================================
+   12. RESPONSIVE
+   ============================================================ */
+@media (max-width:900px){
+  .widget-board{grid-template-columns:1fr;}
+  .map-card{border-right:0; border-bottom:1px solid var(--line);}
+  .detail-panel{background:rgba(10,31,38,0.3);}
+  .placeholder{min-height:0; padding:24px 0 8px;}
+  svg#map{max-height:none;}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;}
+  .hero img{max-width:100%;}
+}
+@media (max-width:480px){
+  .toggles{gap:6px;}
+  .toggles button{flex:1 1 calc(50% - 3px); text-align:center; padding:9px 8px;}
+  .metric .row{flex-wrap:wrap; gap:2px;}
+  .map-stage{padding:8px 2px 2px;}
+  .map-stage::after{display:none;}
+  .region-label{font-size:11px;}
+  .now-showing{display:none;}
+  .legend{gap:8px;}
+  .legend .bar{flex:1 1 100%; order:3;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important;}
+  .region-dot,
+  .metric .fill,
+  .detail-panel > *{animation:none !important;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <div class="sdg6">SDG 6 &nbsp;|&nbsp; <span>Water, A Basic Need: Dive In.</span></div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="section" id="Dive">
+  <div class="hero">
+    <div>
+      <h1>Clean Water and Sanitation Situation<br><em>in the Philippines.</em></h1>
+      <p class="lede">
+        Safe water and sanitation are a basic need and a human right, yet millions
+         still lack access to them. Through <b>organizations, NGOs, and NPOs,</b> we can
+          support a drive that <b>promotes awareness, better hygiene,
+           and sustainable solutions</b> for communities in need.
+      </p>
+    </div>
+    <div>
+      <img src="https://sdgs.un.org/sites/default/files/2026-07/Goals_Under_Review_UN_SDG_Report_2026_Goal_6_C.png" alt="UN SDG 6 hygiene services graphic">
+    </div>
+  </div>
+
+  <div class="headline-stat">
+    <div>
+      <div class="stat-num">2.5B</div>
+      <div class="stat-label">People without access to safe water &amp; basic sanitation</div>
+    </div>
+    <div>
+      <div class="stat-num">1 in 10</div>
+      <div class="stat-label">Filipinos still can't access clean water resources</div>
+    </div>
+    <div>
+      <div class="stat-num">55/day</div>
+      <div class="stat-label">Filipino deaths linked to poor sanitation access</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ===================== PART 01 — PROBLEM ===================== -->
+<section class="section" id="Problem">
+  <div class="eyebrow">Part 01 — The problem</div>
+  <h1>A basic need, still out of reach</h1>
+  <p class="lede" style="margin-top:14px;">
+    Water sustains every ecosystem and every person in it. But unsafe water and absent
+    sanitation still drive disease, death, and daily indignity — worldwide, and block
+    by block in the Philippines.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="stat-num">73%</div>
+      <div class="stat-label">of the global population had access to water free from contamination in 2022 — meaning over a quarter did not.</div>
+      <div class="source">WHO, 2023</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">2B+</div>
+      <div class="stat-label">people live in water-scarce countries, a figure worsened by climate change and population growth.</div>
+      <div class="source">WHO, 2023</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">1 in 4</div>
+      <div class="stat-label">worldwide are projected to face water shortages by 2050 if current trends continue.</div>
+      <div class="source">UNDP, n.d.</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">20M</div>
+      <div class="stat-label">Filipinos have no access to sanitation or proper sewage facilities.</div>
+      <div class="source">Rappler, 2013</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">40.3%</div>
+      <div class="stat-label">of Filipino families rely on water refilling stations for drinking water.</div>
+      <div class="source">Wateroam, 2020</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">39%</div>
+      <div class="stat-label">had access to safe sanitation as of 2015 — the starting point the SDGs are still working to lift.</div>
+      <div class="source">UNDP, n.d.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GLOBAL PROGRESS ===================== -->
+<section class="section progress" id="GProgress">
+  <img src="https://sdgs.un.org/sites/default/files/2025-07/2025_SDG_Goal-Level_Social_Media_Cards_Goal_6_small.png" alt="UN SDG 6 progress card">
+
+  <h1>Global WASH progress, 2015 → 2024</h1>
+
+  <div class="prog-row">
+    <div class="prog-head">
+      <span class="prog-name">Safely managed drinking water</span>
+      <span class="prog-value">68% → 74%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" style="--target:74%"></div></div>
+  </div>
+
+  <div class="prog-row">
+    <div class="prog-head">
+      <span class="prog-name">Safely managed sanitation</span>
+      <span class="prog-value">48% → 58%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" style="--target:58%"></div></div>
+  </div>
+
+  <div class="prog-row">
+    <div class="prog-head">
+      <span class="prog-name">Basic hygiene services</span>
+      <span class="prog-value">66% → 80%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" style="--target:80%"></div></div>
+  </div>
+
+  <div class="source">Source: The SDG Report 2025, UN Dept. of Economic and Social Affairs</div>
+</section>
+
+<hr>
+
+<!-- ===================== PULL QUOTE ===================== -->
+<section class="section" id="SProof">
+  <blockquote class="pull-quote">
+    A family lives beside a pedicab on a Manila pavement, sheets of old tarpaulin their
+    only wall against the rain. They wash their clothes with a single gallon of water —
+    no way to know if it's even clean, no way to make it last.
+    <div class="pull-quote-attr">Observed near a dormitory in Manila</div>
+  </blockquote>
+
+  <div class="card-single">
+    <div class="stat-num">55 deaths/day</div>
+    <div class="stat-label">
+      linked to open defecation in sewer canals, a result of limited sanitation access
+      across the Philippines. Sewer canals nationwide remain open, clogged with debris,
+      and largely unmaintained by government programs.
+    </div>
+    <div class="source">WHO, 2017</div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ===================== PART 02 — SOLUTION ===================== -->
+<section class="section" id="Solution">
+  <div class="eyebrow">Part 02 — Toward a solution</div>
+  <h1>What clearing the water actually takes</h1>
+  <p class="lede" style="margin-top:14px;">
+    Fixing this doesn't require reinventing anything — it requires finishing what's already
+    been started. Three concrete, sequential fixes at the sewage level, backed by frameworks
+    already in motion since 2014.
+  </p>
+
+  <div class="step">
+    <div class="eyebrow">Step 01</div>
+    <h3>Clear the open canals</h3>
+    <p>Remove debris, dirt, and trash from the sewer canals first. This alone restores the wastewater
+       flow and cuts the odor that currently forces pedestrians to swerve away from sidewalks nationwide.</p>
+  </div>
+
+  <div class="step">
+    <div class="eyebrow">Step 02</div>
+    <h3>Close the canals</h3>
+    <p>Covering open canals reduces contamination exposure and foul odor at the source, while reclaiming
+       usable sidewalk space in dense urban areas.</p>
+  </div>
+
+  <div class="step">
+    <div class="eyebrow">Step 03</div>
+    <h3>Treat the wastewater</h3>
+    <p>Proper, timely wastewater treatment — not just containment — is what ultimately makes the water
+       safe again for the communities living closest to it.</p>
+  </div>
+</section>
+
+<section class="section" id="SinceLast">
+  <div class="since">
+    <div class="eyebrow">Since 2014</div>
+    <h3>Sanitation Safety Planning (SSP)</h3>
+    <p>WHO, the Asian Development Bank, and the Philippine DOH use SSP as a household-level risk assessment
+       tool — a direct stepping stone toward the 2030 targets for reduced water-pollution deaths and water
+       sanitation.</p>
+  </div>
+
+  <div class="since">
+    <div class="eyebrow">Target: 2020</div>
+    <h3>National Sewerage &amp; Septage Management Program</h3>
+    <p>The Philippine government set a water-quality goal through NSSMP for 2020. As of 2025, no noticeable
+       improvement to the sewage system has followed — the gap between policy and pavement.</p>
+  </div>
+
+  <div class="since">
+    <div class="eyebrow">Ongoing</div>
+    <h3>Private vs. public maintenance</h3>
+    <p>Visible maintenance along Manila's streets is largely private water suppliers serving paying customers
+       — not government-operated repair of the public sewage system that everyone depends on.</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- ===================== INTERACTIVE WIDGET ===================== -->
+<section class="section" id="RegionMap">
+  <div class="eyebrow">SDG 6 · Regional data</div>
+  <h1>Water and sanitation access, region by region</h1>
+  <p class="lede" style="margin-top:14px;">
+    Click any region to see how it's doing on safe drinking water, sanitation, and handwashing —
+    drawn from the Philippine Statistics Authority's 2024 Annual Poverty Indicators Survey
+    (preliminary) and related national data.
+  </p>
+
+  <div class="widget-shell">
+
+    <div class="widget-stats">
+      <div class="stat"><div class="v">53.1<i>%</i></div><div class="k">families with safely managed drinking water, 2024</div></div>
+      <div class="stat"><div class="v">97.5<i>%</i></div><div class="k">families with at least basic drinking water, 2024</div></div>
+      <div class="stat"><div class="v">84.7<i>%</i></div><div class="k">families with basic sanitation, 2024</div></div>
+      <div class="stat"><div class="v">2.6<i>%</i></div><div class="k">families still practicing open defecation, 2024</div></div>
+      <div class="stat"><div class="v">94.0<i>%</i></div><div class="k">families with basic handwashing facilities, 2024</div></div>
+    </div>
+
+    <div class="widget-board">
+    <div class="map-card">
+      <div class="map-head">
+        <h3>Explore by region</h3>
+        <span class="now-showing">17 regions</span>
+      </div>
+      <p class="sub">Colour shows the selected indicator. Hollow dots mean that indicator wasn't separately published for that region in the latest release.</p>
+
+      <div class="toggles" id="toggles"></div>
+
+      <div class="map-stage">
+      <svg id="map" viewBox="0 0 450 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic map of the Philippines by region">
+        <path class="island" d="M260,30 C300,25 330,50 325,85 C355,95 365,130 345,155 C370,170 375,200 350,215 C375,235 370,265 340,270 C360,290 355,320 325,325 C345,350 330,380 300,370 C310,395 295,415 270,400 C250,410 235,390 245,370 C220,365 210,340 225,320 C200,310 195,285 215,270 C190,255 190,225 215,215 C195,195 200,165 225,160 C205,140 210,110 235,100 C220,80 225,50 260,30 Z"/>
+        <path class="island" d="M175,330 C195,325 210,340 205,360 C215,375 205,395 185,390 C170,400 155,390 158,370 C145,355 155,335 175,330 Z"/>
+        <path class="island" d="M90,470 C100,455 115,450 120,465 C135,460 140,475 130,485 C140,500 130,515 118,510 C122,525 110,535 100,525 C105,540 92,548 85,535 C90,522 78,515 85,505 C75,495 82,482 92,485 C82,475 88,462 90,470 Z"/>
+        <path class="island" d="M210,430 C230,425 245,440 240,455 C250,470 235,485 218,478 C200,485 190,468 198,455 C188,445 198,432 210,430 Z"/>
+        <path class="island" d="M250,455 C268,450 280,465 275,480 C285,495 270,510 255,502 C240,508 232,490 240,478 C232,468 240,455 250,455 Z"/>
+        <path class="island" d="M285,440 C292,435 298,450 295,470 C300,490 292,510 285,505 C278,495 280,470 278,455 C275,445 280,440 285,440 Z"/>
+        <path class="island" d="M300,495 C312,490 320,500 315,512 C320,522 308,530 298,522 C292,512 295,500 300,495 Z"/>
+        <path class="island" d="M340,400 C360,390 375,405 368,425 C378,445 365,465 348,458 C335,470 322,455 330,438 C320,425 328,408 340,400 Z"/>
+        <path class="island" d="M320,440 C335,435 345,450 338,468 C345,485 330,498 318,488 C305,495 298,478 308,465 C300,452 310,440 320,440 Z"/>
+        <path class="island" d="M190,540 C220,525 260,520 290,530 C320,520 355,530 375,550 C400,545 420,565 410,585 C425,600 415,625 395,630 C405,650 390,670 370,665 C375,685 355,700 335,690 C320,710 295,705 285,685 C260,695 235,680 240,660 C210,665 190,645 200,625 C175,615 170,590 190,575 C170,565 175,545 190,540 Z"/>
+
+        <g id="dots"></g>
+        <g id="labels"></g>
+      </svg>
+      </div>
+
+      <div class="legend">
+        <span>Lower access</span>
+        <span class="bar"></span>
+        <span>Higher access</span>
+        <span class="nodata"><i></i> not published</span>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="panel">
+      <div class="placeholder">
+        <div class="mark"></div>
+        <h3>No region selected</h3>
+        <p>Pick a dot on the map — try BARMM or NCR for the widest gap in the country's water access.</p>
+      </div>
+    </div>
+    </div>
+
+    <p class="widget-source">
+      Source: Philippine Statistics Authority, 2024 Annual Poverty Indicators Survey (preliminary results,
+      released June 2025) and 2022 APIS. Regional figures are those PSA highlighted by name in its national
+      and regional releases. Where a region's figure for a given indicator wasn't separately published, this
+      widget says so rather than estimating one. Map geography is schematic, not a precise administrative
+      boundary map.
+    </p>
+
+  </div>
+</section>
+
+<hr>
+
+<!-- ===================== CTA ===================== -->
+<section class="section" id="CTA">
+  <h1>Every organization willing to help moves this forward.</h1>
+  <p class="lede" style="margin-top:14px;">
+    Governments have set targets before and missed them. What's closed the gap so far has largely been
+    individual donations, awareness efforts, and organizations working without expecting anything in
+    return. That's where support — and funding — has the clearest path to impact.
+  </p>
+  <a href="#" class="btn" data-ga-label="Donate">Donate</a>
+  <a href="#" class="btn" data-ga-label="How to Help">How to Help?</a>
+</section>
+
+<footer class="page-footer">
+  <p>Based on the research of Alexter Cueno into SDG 6 — Clean Water and Sanitation, with data from
+     WHO, UNDP, the United Nations, Rappler, and Wateroam.</p>
+  <a href="https://drive.google.com/file/d/1cvdZk40E4NBnfuGv4cICx8ayMm2ANluo/view?usp=sharing" class="btn" data-ga-label="Original Paper" target="_blank" rel="noopener">Original Paper</a>
+  <a href="https://drive.google.com/file/d/1ZYIkLlkaho-TZyoGvZ-wn1pb7YCrGZXi/view?usp=sharing" class="btn" data-ga-label="References" target="_blank" rel="noopener">References</a>
+  <p class="copyright">&copy; 2026 Alexter Cueno. CS30-8P Coursework. Mapúa University</p>
+</footer>
+
+<script>
+/* ============================================================
+   GOOGLE ANALYTICS HELPER
+   Safe wrapper — never throws if gtag is blocked or still loading.
+   ============================================================ */
+function track(eventName, params){
+  try{
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+    // Uncomment while testing to confirm events fire:
+    // console.log('[GA]', eventName, params);
+  }catch(e){ /* analytics must never break the UI */ }
+}
+
+/* ============================================================
+   WIDGET DATA
+   ============================================================ */
+const METRICS = {
+  safelyManaged:     { label:"Safely managed drinking water", domain:[10,90] },
+  basicWater:        { label:"Basic drinking water service",  domain:[10,80] },
+  atLeastBasicWater: { label:"At least basic water access",   domain:[85,100] },
+  basicSanitation:   { label:"Basic sanitation service",      domain:[50,95] },
+  openDefecation:    { label:"Practicing open defecation",    domain:[0,10], invert:true },
+  handwashing:       { label:"Basic handwashing facility",    domain:[80,100] }
+};
+
+const REGIONS = [
+  { id:"car", name:"CAR", full:"Cordillera Administrative Region", x:250, y:75,
+    m:{ basicSanitation:{v:90.7,y:2024}, handwashing:{v:98.4,y:2024} } },
+  { id:"r1", name:"Region I", full:"Ilocos Region", x:225, y:95,
+    m:{ atLeastBasicWater:{v:97.9,y:2024} } },
+  { id:"r2", name:"Region II", full:"Cagayan Valley", x:315, y:80,
+    m:{ safelyManaged:{v:27.6,y:2024}, basicWater:{v:70.9,y:2024}, atLeastBasicWater:{v:98.5,y:2024} } },
+  { id:"r3", name:"Region III", full:"Central Luzon", x:290, y:175,
+    m:{ safelyManaged:{v:67.0,y:2024}, basicWater:{v:32.4,y:2024}, atLeastBasicWater:{v:99.4,y:2024}, basicSanitation:{v:94.3,y:2024}, handwashing:{v:97.8,y:2024} } },
+  { id:"ncr", name:"NCR", full:"National Capital Region", x:295, y:220,
+    m:{ safelyManaged:{v:85.5,y:2024}, basicWater:{v:14.1,y:2024}, atLeastBasicWater:{v:99.6,y:2024} } },
+  { id:"r4a", name:"Region IV-A", full:"CALABARZON", x:280, y:255,
+    m:{ safelyManaged:{v:73.1,y:2024}, basicWater:{v:25.5,y:2024}, atLeastBasicWater:{v:98.6,y:2024} } },
+  { id:"mimaropa", name:"MIMAROPA", full:"MIMAROPA Region", x:150, y:400,
+    m:{ basicSanitation:{v:83.5,y:2024}, openDefecation:{v:5.8,y:2024} } },
+  { id:"r5", name:"Region V", full:"Bicol Region", x:300, y:340,
+    m:{ safelyManaged:{v:25.8,y:2024}, basicWater:{v:68.3,y:2024}, atLeastBasicWater:{v:94.1,y:2024}, openDefecation:{v:9.0,y:2024} } },
+  { id:"r6", name:"Region VI", full:"Western Visayas", x:222, y:452,
+    m:{ openDefecation:{v:4.9,y:2024}, handwashing:{v:97.6,y:2024} } },
+  { id:"r7", name:"Region VII", full:"Central Visayas", x:288, y:470,
+    m:{ basicSanitation:{v:81.8,y:2024} } },
+  { id:"r8", name:"Region VIII", full:"Eastern Visayas", x:345, y:430,
+    m:{ handwashing:{v:91.5,y:2024} } },
+  { id:"r9", name:"Region IX", full:"Zamboanga Peninsula", x:195, y:560,
+    m:{ basicWater:{v:66.6,y:2024}, atLeastBasicWater:{v:97.7,y:2024} } },
+  { id:"r10", name:"Region X", full:"Northern Mindanao", x:290, y:545,
+    m:{ handwashing:{v:89.5,y:2024} } },
+  { id:"r11", name:"Region XI", full:"Davao Region", x:370, y:590,
+    m:{ basicSanitation:{v:80.6,y:2024}, handwashing:{v:95.1,y:2024} } },
+  { id:"r12", name:"Region XII", full:"SOCCSKSARGEN", x:300, y:650,
+    m:{ basicSanitation:{v:74.4,y:2024}, handwashing:{v:83.3,y:2024}, openDefecation:{v:2.1,y:2024} } },
+  { id:"caraga", name:"Caraga", full:"Caraga Region", x:390, y:570,
+    m:{ basicSanitation:{v:88.3,y:2024} } },
+  { id:"barmm", name:"BARMM", full:"Bangsamoro Autonomous Region in Muslim Mindanao", x:210, y:610,
+    m:{ safelyManaged:{v:14.8,y:2024}, basicWater:{v:73.4,y:2024}, atLeastBasicWater:{v:88.2,y:2024}, basicSanitation:{v:57.1,y:2024}, openDefecation:{v:9.4,y:2024}, handwashing:{v:82.4,y:2024} } }
+];
+
+let currentMetric = "basicSanitation";
+let selectedId = null;
+
+/* engagement counters, sent with each event so you can see depth of use */
+let interactionCount = 0;
+let firstInteractionSent = false;
+const regionsViewed = new Set();
+
+function colorFor(metricKey, value){
+  if(value === undefined || value === null) return null;
+  const {domain, invert} = METRICS[metricKey];
+  let t = (value - domain[0]) / (domain[1] - domain[0]);
+  t = Math.max(0, Math.min(1, t));
+  if(invert) t = 1 - t;
+  const stops = [[255,107,91],[226,163,61],[127,216,206]];
+  let a, b, localT;
+  if(t <= 0.5){ a = stops[0]; b = stops[1]; localT = t/0.5; }
+  else        { a = stops[1]; b = stops[2]; localT = (t-0.5)/0.5; }
+  const c = a.map((v,i)=> Math.round(v + (b[i]-v)*localT));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+
+/* fires once, the first time anyone touches the widget */
+function markFirstInteraction(){
+  if(firstInteractionSent) return;
+  firstInteractionSent = true;
+  track('widget_first_interaction', {
+    widget_name: 'ph_sdg6_region_map'
+  });
+}
+
+/* ---------- indicator toggle buttons ---------- */
+function buildToggles(){
+  const el = document.getElementById("toggles");
+  Object.entries(METRICS).forEach(([key, def])=>{
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = def.label;
+    btn.dataset.key = key;
+    btn.setAttribute("aria-pressed", key === currentMetric ? "true" : "false");
+    if(key === currentMetric) btn.classList.add("active");
+
+    btn.addEventListener("click", ()=>{
+      const previous = currentMetric;
+      currentMetric = key;
+      interactionCount++;
+      markFirstInteraction();
+
+      document.querySelectorAll("#toggles button").forEach(b=>{
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed","false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-pressed","true");
+      drawDots();
+      if(selectedId) renderPanel(REGIONS.find(r=>r.id===selectedId));
+
+      /* GA: which indicator people actually care about */
+      track('select_indicator', {
+        widget_name:        'ph_sdg6_region_map',
+        indicator_id:       key,
+        indicator_label:    def.label,
+        previous_indicator: previous,
+        interaction_number: interactionCount
+      });
+    });
+
+    el.appendChild(btn);
+  });
+}
+
+/* ---------- map dots ---------- */
+function drawDots(){
+  const dotsG = document.getElementById("dots");
+  const labelsG = document.getElementById("labels");
+  dotsG.innerHTML = "";
+  labelsG.innerHTML = "";
+
+  REGIONS.forEach(r=>{
+    const metric = r.m[currentMetric];
+    const fill = metric ? colorFor(currentMetric, metric.v) : null;
+
+    const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("cx", r.x);
+    c.setAttribute("cy", r.y);
+    c.setAttribute("r", 10);
+    c.setAttribute("fill", fill || "rgba(0,0,0,0)");
+    c.setAttribute("stroke", metric ? "rgba(255,255,255,.55)" : "rgba(175,192,190,0.55)");
+    c.setAttribute("stroke-width", 1.5);
+    if(!metric) c.setAttribute("stroke-dasharray","3,2");
+    c.classList.add("region-dot");
+    if(r.id === selectedId) c.classList.add("selected");
+
+    /* keyboard accessible + GA-tracked */
+    c.setAttribute("tabindex","0");
+    c.setAttribute("role","button");
+    c.setAttribute("aria-label", r.full);
+    c.addEventListener("click", ()=> selectRegion(r.id, 'map_click'));
+    c.addEventListener("keydown", (e)=>{
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); selectRegion(r.id, 'keyboard'); }
+    });
+
+    const title = document.createElementNS("http://www.w3.org/2000/svg","title");
+    title.textContent = metric
+      ? `${r.full}: ${metric.v}% (${metric.y})`
+      : `${r.full}: not published for this indicator`;
+    c.appendChild(title);
+    dotsG.appendChild(c);
+
+    const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+    t.setAttribute("x", r.x);
+    t.setAttribute("y", r.y - 14);
+    t.setAttribute("text-anchor","middle");
+    t.classList.add("region-label");
+    t.textContent = r.name;
+    labelsG.appendChild(t);
+  });
+}
+
+function selectRegion(id, method){
+  const r = REGIONS.find(x=>x.id===id);
+  if(!r) return;
+
+  const isRepeat = regionsViewed.has(id);
+  selectedId = id;
+  interactionCount++;
+  regionsViewed.add(id);
+  markFirstInteraction();
+
+  drawDots();
+  renderPanel(r);
+
+  const metric = r.m[currentMetric];
+
+  /* GA: which regions get explored, under which indicator */
+  track('select_region', {
+    widget_name:        'ph_sdg6_region_map',
+    region_id:          r.id,
+    region_name:        r.full,
+    indicator_id:       currentMetric,
+    indicator_label:    METRICS[currentMetric].label,
+    indicator_value:    metric ? metric.v : null,
+    has_data:           !!metric,
+    selection_method:   method || 'map_click',
+    is_repeat_view:     isRepeat,
+    regions_viewed:     regionsViewed.size,
+    interaction_number: interactionCount
+  });
+}
+
+function renderPanel(r){
+  const panel = document.getElementById("panel");
+  let html =
+    `<div class="eyebrow">${r.name}</div>` +
+    `<h3>${r.full}</h3>` +
+    `<p class="hint">Tap another region to compare, or switch the map's colour indicator above.</p>`;
+
+  Object.entries(METRICS).forEach(([key, def])=>{
+    const m = r.m[key];
+    html += `<div class="metric"><div class="row"><span class="name">${def.label}</span>`;
+    if(m){
+      html += `<span class="val">${m.v}%<span class="yr">${m.y}</span></span></div>
+        <div class="track"><div class="fill" style="width:${Math.min(100,m.v)}%; background:${colorFor(key,m.v)}"></div></div>`;
+    } else {
+      html += `</div><div class="empty">Not individually published for this region in the latest release</div>`;
+    }
+    html += `</div>`;
+  });
+
+  panel.innerHTML = html;
+}
+
+/* ---------- widget impression: fires when it scrolls into view ---------- */
+function watchWidgetVisibility(){
+  const target = document.getElementById("RegionMap");
+  if(!target || !("IntersectionObserver" in window)) return;
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        track('widget_view', { widget_name:'ph_sdg6_region_map' });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  io.observe(target);
+}
+
+/* ---------- page-level buttons (CTA + footer links) ---------- */
+function trackPageButtons(){
+  document.querySelectorAll('[data-ga-label]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      track('cta_click', {
+        link_label: el.dataset.gaLabel,
+        link_url:   el.getAttribute('href') || '',
+        section:    el.closest('section, footer')?.id || 'footer'
+      });
+    });
+  });
+}
+
+/* ---------- init ---------- */
+buildToggles();
+drawDots();
+watchWidgetVisibility();
+trackPageButtons();
+</script>
+
+</body>
+</html>
