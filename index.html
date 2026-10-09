@@ -18,6 +18,27 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-TL55SZNLC3');
+
+  /* ---- UTM tracking: shows up in Realtime > Event count by Event name ---- */
+  (function () {
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var src = p.get('utm_source');
+      if (!src) return; // only runs when the link has UTMs
+
+      var clean = function (s) {
+        return String(s || 'none').toLowerCase().replace(/[^a-z0-9]+/g, '_').slice(0, 15);
+      };
+
+      // e.g. utm_instagram_social (kept under GA's 40-character event name limit)
+      gtag('event', 'utm_' + clean(src) + '_' + clean(p.get('utm_medium')), {
+        utm_source:   p.get('utm_source'),
+        utm_medium:   p.get('utm_medium'),
+        utm_campaign: p.get('utm_campaign'),
+        utm_content:  p.get('utm_content')
+      });
+    } catch (e) { /* analytics must never break the page */ }
+  })();
 </script>
 
 <style>
